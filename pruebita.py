@@ -1,5 +1,6 @@
-print("Hola mundo")
+#Programa principal           
+def main():
+    print("Hola Mundo")
 
-print ("hola")
-
-print ("chau")
+if __name__ == "__main__":
+    main()
