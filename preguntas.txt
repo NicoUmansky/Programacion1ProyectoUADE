@@ -1,0 +1,20 @@
+¿Cuál es la montaña más alta de Argentina?;Aconcagua, Cerro Torre, Monte Fitz Roy, Nevado de Cachi; Aconcagua
+¿En qué año se celebró el primer Mundial de Fútbol en el que participó Argentina?;1930, 1934, 1950, 1928; 1930
+¿Qué provincia argentina es conocida como "La Docta"?;Córdoba, Mendoza, Tucumán, Santa Fe; Córdoba
+¿Quién fue el primer presidente argentino en llegar al poder mediante elecciones directas?;Hipólito Yrigoyen, Bartolomé Mitre, Julio A. Roca, Domingo F. Sarmiento; Hipólito Yrigoyen
+¿En qué ciudad se encuentra el famoso glaciar Perito Moreno?;El Calafate, Ushuaia, Bariloche, San Martín de los Andes; El Calafate
+¿Cuál es la capital de la provincia de La Pampa?;Santa Rosa, General Pico, San Luis, Resistencia; Santa Rosa
+¿Cuál es el río más largo de Argentina?;Río Paraná, Río Uruguay, Río Colorado, Río Salado; Río Paraná
+¿En qué año se fundó la Universidad de Buenos Aires?;1821, 1816, 1830, 1806; 1821
+¿Qué famoso escritor argentino es conocido por su obra "El Aleph"?;Jorge Luis Borges, Julio Cortázar, Adolfo Bioy Casares, Manuel Puig; Jorge Luis Borges
+¿Cuál es el plato típico argentino que consiste en intestinos de vaca asados a la parrilla?;Chinchulines, Provoleta, Empanadas, Milanesas; Chinchulines
+¿Qué provincia argentina es la mayor productora de vino?;Mendoza, San Juan, La Rioja, Salta; Mendoza
+¿Qué famoso cantante argentino es conocido como "El Zorzal Criollo"?;Carlos Gardel, Atahualpa Yupanqui, Mercedes Sosa, Sandro; Carlos Gardel
+¿En qué año fue sancionada la Ley de Voto Femenino en Argentina?;1947, 1951, 1937, 1960; 1947
+¿Cuál es el nombre del Parque Nacional que protege las Cataratas del Iguazú?;Parque Nacional Iguazú, Parque Nacional Nahuel Huapi, Parque Nacional Los Glaciares, Parque Nacional Talampaya; Parque Nacional Iguazú
+¿Qué río marca la frontera natural entre Argentina y Uruguay?;Río Uruguay, Río Paraná, Río de la Plata, Río Colorado; Río Uruguay
+¿Cuál es la ciudad más austral del mundo, ubicada en Argentina?;Ushuaia, Río Gallegos, El Chaltén, Puerto Madryn; Ushuaia
+¿En qué año se declaró la independencia de Argentina?;1816, 1810, 1820, 1806; 1816
+¿Qué provincia argentina limita con Bolivia y Paraguay?;Salta, Formosa, Jujuy, Misiones; Formosa
+¿Cuál es el nombre del primer satélite argentino lanzado al espacio?;SAC-B, ARSAT-1, SAOCOM 1A, LUSAT-1; LUSAT-1
+¿En qué ciudad argentina se realiza anualmente la Fiesta Nacional de la Vendimia?;Mendoza, San Juan, La Rioja, San Rafael; Mendoza
