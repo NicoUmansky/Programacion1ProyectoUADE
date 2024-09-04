@@ -1,3 +1,4 @@
+
 def inicioSesion():
     print("¡Bienvenido a Kick & Quiz!")
     print("Por favor, logueese para empezar a jugar")
@@ -21,11 +22,8 @@ def inicioSesion():
     
     print("¡Bienvenida Eugenia!")
 
-def empezar_juego():
-   
-    print("¡Empecemos a jugar!")
 
-def preguntasYRespuestas():
+def preguntasOpcionesRespuesta():
  
     preguntas = [
         "¿Cuál es la montaña más alta de Argentina?",
@@ -77,11 +75,10 @@ def preguntasYRespuestas():
 
 
 def main():
+
     inicioSesion()
-    
-    preguntas, opcionesRespuestas = preguntasYRespuestas()
-    print(preguntas)
-    print(opcionesRespuestas)
+    preguntasOpcionesRespuesta()
+
     
 
 if __name__ == "__main__":
