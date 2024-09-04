@@ -1,3 +1,4 @@
+
 import random
 def arco1():
     print("┎⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯┒")
@@ -36,71 +37,31 @@ def penal():
     print("|  4  ┆  5  ┆  6  |")
     print("|  7  ┆  8  ┆  9  |")
     casilla = int(input("Ingresa el número de la casilla a la que quieres patear: "))
+
     configuracion = random.randint(1,3)
     if configuracion == 1:
         config = arco1()
-        print()
     elif configuracion == 2:
         config = arco2()
-        print()
     else:
         config = arco3()
+    print()
+    fil = (casilla - 1) // 3
+    col = (casilla - 1) % 3
+    if config[fil][col] == 1:
+        gol()
         print()
-    if casilla == 1:
-        if config[0][0] == 1:
-            gol()
-            print("Gol! Obtienes 1 punto extra.")
-        else:
-            print("Fallaste!")
-    elif casilla == 2:
-        if config[0][1] == 1:
-            gol()
-            print("Gol! Obtienes 1 punto extra.")
-        else:
-            print("Fallaste!")
-    elif casilla == 3:
-        if config[0][2] == 1:
-            gol()
-            print("Gol! Obtienes 1 punto extra.")
-        else:
-            print("Fallaste!")
-    elif casilla == 4:
-        if config[1][0] == 1:
-            gol()
-            print("Gol! Obtienes 1 punto extra.")
-        else:
-            print("Fallaste!")
-    elif casilla == 5:
-        if config[1][1] == 1:
-            gol()
-            print("Gol! Obtienes 1 punto extra.")
-        else:
-            print("Fallaste!")
-    elif casilla == 6:
-        if config[1][2] == 1:
-            gol()
-            print("Gol! Obtienes 1 punto extra.")
-        else:
-            print("Fallaste!")
-    elif casilla == 7:
-        if config[2][0] == 1:
-            gol()
-            print("Gol! Obtienes 1 punto extra.")
-        else:
-            print("Fallaste!")
-    elif casilla == 8:
-        if config[2][1] == 1:
-            gol()
-            print("Gol! Obtienes 1 punto extra.")
-        else:
-            print("Fallaste!")
-    elif casilla == 9:
-        if config[2][2] == 1:
-            gol()
-            print("Gol! Obtienes 1 punto extra.")
-        else:
-            print("Fallaste!")
+        print("\x1b[1;33m"+"Gol! Obtienes 1 punto extra.")
+    else:
+        print("\033[4;35m"+"Fallaste!")
 
+#Luego de patear un penal, tendras la posibilidad de atajar uno
+def atajar():
+    print("Es momento de atajar un penal para tener la posibilidad de sumar puntos extra, elige a donde quieres atajar:")
+    print("┎⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯┒")
+    print("|  1  ┆  2  ┆  3  |")
+    print("|  4  ┆  5  ┆  6  |")
+    print("|  7  ┆  8  ┆  9  |")
 
 
 penal()
