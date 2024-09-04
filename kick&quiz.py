@@ -2,16 +2,22 @@ def inicioSesion():
     print("¡Bienvenido a Kick & Quiz!")
     print("Por favor, logueese para empezar a jugar")
 
-    mail_usuario = input("Ingrese su mail: ")
-    contra_usuario = input("Ingrese su contraseña: ")
+    mailCorrecto = "eugenia@gmail.com"
+    contraCorrecta = "1234"
 
-    while mail_usuario != "eugenia@gmail.com":
+    mailUsuario = input("Ingrese su mail: ")
+    while mailUsuario != mailCorrecto:
         print("Mail incorrecto.")
-        mail_usuario = input("Reingrese su mail: ")
+        mailUsuario = input("Reingrese su mail: ")
+
+    contraUsuario = input("Ingrese su contraseña (4 dígitos): ")
+    while not (contraUsuario.isdigit() and len(contraUsuario) == 4):
+        print("Contraseña incorrecta. Debe ser un número de 4 dígitos.")
+        contraUsuario = input("Reingrese su contraseña (4 dígitos): ")
     
-    while contra_usuario != "1234":
+    while contraUsuario != contraCorrecta:
         print("Contraseña incorrecta.")
-        contra_usuario = input("Reingrese su contraseña: ")
+        contraUsuario = input("Reingrese su contraseña (4 dígitos): ")
     
     print("¡Bienvenida Eugenia!")
 
