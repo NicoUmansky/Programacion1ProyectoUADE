@@ -51,9 +51,9 @@ def penal():
     if config[fil][col] == 1:
         gol()
         print()
-        print("\x1b[1;33m"+"Gol! Obtienes 1 punto extra.")
+        print("\x1b[1;32m"+"Gol! Obtienes 1 punto extra.")
     else:
-        print("\033[4;35m"+"Fallaste!")
+        print("\033[1;31m"+"Fallaste!")
 
 #Luego de patear un penal, tendras la posibilidad de atajar uno
 def atajar():
