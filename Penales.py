@@ -101,7 +101,6 @@ def penal():
             print("Gol! Obtienes 1 punto extra.")
         else:
             print("Fallaste!")
-    
 
 
 
