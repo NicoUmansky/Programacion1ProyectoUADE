@@ -2,6 +2,9 @@ from inicioSesion import inicioSesion
 from triviaPreguntas import jugarPreguntas
 from colorama import Fore, init
 
+#python3 -m pip install colorama
+
+
 def main():
     init()
     

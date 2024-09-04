@@ -21,4 +21,3 @@ def inicioSesion():
         contraUsuario = input("Reingrese su contraseña (4 dígitos): ")
     
     print("¡Bienvenida Eugenia!")
-
