@@ -1,6 +1,7 @@
 #Programa principal           
 def main():
     
+    #Lista de preguntas
     preguntas = [
     "¿Cuál es la montaña más alta de Argentina?",
     "¿En qué año se celebró el primer Mundial de Fútbol en el que participó Argentina?",
@@ -24,7 +25,7 @@ def main():
     "¿En qué ciudad argentina se realiza anualmente la Fiesta Nacional de la Vendimia?"
 ]
 
-# Matriz paralela con opciones y respuestas correctas
+# Matriz en la que cada fila tiene cinco elementos: las cuatro opciones de respuesta y, en el último, la opción correcta.
 opciones_y_respuestas = [
     ["Aconcagua", "Cerro Torre", "Monte Fitz Roy", "Nevado de Cachi", "Aconcagua"],
     ["1930", "1934", "1950", "1928", "1930"],
@@ -47,6 +48,35 @@ opciones_y_respuestas = [
     ["SAC-B", "ARSAT-1", "SAOCOM 1A", "LUSAT-1", "LUSAT-1"],
     ["Mendoza", "San Juan", "La Rioja", "San Rafael", "Mendoza"]
 ]
+
+
+print("¡Bienvenido a Kick & Quiz!")
+print("Por favor, logueese para empezar a jugar")
+
+mail_usuario = input("Ingrese su mail: ")
+contra_usuario= input("Ingrese su contraseña: ")
+
+if mail_usuario == "eugenia@gmail.com":
+    if contra_usuario == "1234":
+        print("¡Bienvenida Eugenia!")
+    else:
+        print("Contraseña incorrecta.")
+        while(contra_usuario != "1234"):
+            print("Contraseña incorrecta.")
+            contra_usuario= input("Reingrese su contraseña: ")
+else:
+    print("Mail incorrecto.")
+    while(mail_usuario != "eugenia@gmail.com"):
+        mail_usuario = input("Reingrese su mail: ")
+        print("Mail incorrecto.")
+    print("¡Bienvenida Eugenia!")
+
+
+print("¡Empecemos a jugar!")
+
+
+
+
 
 
 if __name__ == "__main__":
