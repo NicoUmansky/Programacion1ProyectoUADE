@@ -50,30 +50,31 @@ def preguntasYRespuestas():
         "¿En qué ciudad argentina se realiza anualmente la Fiesta Nacional de la Vendimia?"
     ]
     
-    opcionesYRespuestas = [
-        ["Aconcagua", "Cerro Torre", "Monte Fitz Roy", "Nevado de Cachi", "Aconcagua"],
-        ["1930", "1934", "1950", "1928", "1930"],
-        ["Córdoba", "Mendoza", "Tucumán", "Santa Fe", "Córdoba"],
-        ["Hipólito Yrigoyen", "Bartolomé Mitre", "Julio A. Roca", "Domingo F. Sarmiento", "Hipólito Yrigoyen"],
-        ["El Calafate", "Ushuaia", "Bariloche", "San Martín de los Andes", "El Calafate"],
-        ["Santa Rosa", "General Pico", "San Luis", "Resistencia", "Santa Rosa"],
-        ["Río Paraná", "Río Uruguay", "Río Colorado", "Río Salado", "Río Paraná"],
-        ["1821", "1816", "1830", "1806", "1821"],
-        ["Jorge Luis Borges", "Julio Cortázar", "Adolfo Bioy Casares", "Manuel Puig", "Jorge Luis Borges"],
-        ["Chinchulines", "Provoleta", "Empanadas", "Milanesas", "Chinchulines"],
-        ["Mendoza", "San Juan", "La Rioja", "Salta", "Mendoza"],
-        ["Carlos Gardel", "Atahualpa Yupanqui", "Mercedes Sosa", "Sandro", "Carlos Gardel"],
-        ["1947", "1951", "1937", "1960", "1947"],
-        ["Parque Nacional Iguazú", "Parque Nacional Nahuel Huapi", "Parque Nacional Los Glaciares", "Parque Nacional Talampaya", "Parque Nacional Iguazú"],
-        ["Río Uruguay", "Río Paraná", "Río de la Plata", "Río Colorado", "Río Uruguay"],
-        ["Ushuaia", "Río Gallegos", "El Chaltén", "Puerto Madryn", "Ushuaia"],
-        ["1816", "1810", "1820", "1806", "1816"],
-        ["Salta", "Formosa", "Jujuy", "Misiones", "Formosa"],
-        ["SAC-B", "ARSAT-1", "SAOCOM 1A", "LUSAT-1", "LUSAT-1"],
-        ["Mendoza", "San Juan", "La Rioja", "San Rafael", "Mendoza"]
-    ]
-    
-    return preguntas, opcionesYRespuestas
+    opciones = [
+    ["Aconcagua", "Cerro Torre", "Monte Fitz Roy", "Nevado de Cachi"],
+    ["1930", "1934", "1950", "1928"],
+    ["Córdoba", "Mendoza", "Tucumán", "Santa Fe"],
+    ["Hipólito Yrigoyen", "Bartolomé Mitre", "Julio A. Roca", "Domingo F. Sarmiento"],
+    ["El Calafate", "Ushuaia", "Bariloche", "San Martín de los Andes"],
+    ["Santa Rosa", "General Pico", "San Luis", "Resistencia"],
+    ["Río Paraná", "Río Uruguay", "Río Colorado", "Río Salado"],
+    ["1821", "1816", "1830", "1806"],
+    ["Jorge Luis Borges", "Julio Cortázar", "Adolfo Bioy Casares", "Manuel Puig"],
+    ["Chinchulines", "Provoleta", "Empanadas", "Milanesas"],
+    ["Mendoza", "San Juan", "La Rioja", "Salta"],
+    ["Carlos Gardel", "Atahualpa Yupanqui", "Mercedes Sosa", "Sandro"],
+    ["1947", "1951", "1937", "1960"],
+    ["Parque Nacional Iguazú", "Parque Nacional Nahuel Huapi", "Parque Nacional Los Glaciares", "Parque Nacional Talampaya"],
+    ["Río Uruguay", "Río Paraná", "Río de la Plata", "Río Colorado"],
+    ["Ushuaia", "Río Gallegos", "El Chaltén", "Puerto Madryn"],
+    ["1816", "1810", "1820", "1806"],
+    ["Salta", "Formosa", "Jujuy", "Misiones"],
+    ["SAC-B", "ARSAT-1", "SAOCOM 1A", "LUSAT-1"],
+    ["Mendoza", "San Juan", "La Rioja", "San Rafael"]
+]
+    #Indice de las respuestas correctas segun la matriz de opciones
+    respuestasCorrectas = [0, 1, 2, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 3, 0]
+
 
 def main():
     inicioSesion()
