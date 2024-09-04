@@ -1,12 +1,16 @@
 from inicioSesion import inicioSesion
 from triviaPreguntas import jugarPreguntas
+from colorama import Fore, init
 
 def main():
-    print("¡Bienvenido a Kick & Quiz!")
-    print("Por favor, loguéese para empezar a jugar")
+    init()
+    
+    print(Fore.RED + "¡Bienvenido a Kick & Quiz!")
+    print(Fore.YELLOW + "Por favor, loguéese para empezar a jugar")
 
     inicioSesion()
-    print("¡Empecemos a jugar!")
+    print(Fore.BLUE + "¡Empecemos a jugar!")
+
 
     preguntas = [
         "¿Cuál es la montaña más alta de Argentina?",
@@ -57,7 +61,7 @@ def main():
     respuestasCorrectas = [0, 1, 2, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 3, 0]
 
     puntuacionFinal = jugarPreguntas(preguntas, opciones, respuestasCorrectas)
-    print(f"Juego terminado. Tu puntuación final es {puntuacionFinal}.")
-
+    print(Fore.GREEN + f"Juego terminado. Tu puntuación final es {puntuacionFinal}.")
+    
 if __name__ == "__main__":
     main()
