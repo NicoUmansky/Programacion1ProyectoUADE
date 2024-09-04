@@ -64,6 +64,27 @@ def atajar():
     print("|  1  ┆  2  ┆  3  |")
     print("|  4  ┆  5  ┆  6  |")
     print("|  7  ┆  8  ┆  9  |")
+    print()
+    casilla = int(input("Ingresa el número de la casilla a la que quieres atajar: "))
+    configuracion = random.randint(1,3)
+    if configuracion == 1:
+        config = arco1()
+    elif configuracion == 2:
+        config = arco2()
+    else:
+        config = arco3()
+    print()
+    fil = (casilla - 1) // 3
+    col = (casilla - 1) % 3
+    if config[fil][col] == 1:
+        print("\033[1;31m"+"Fallaste! Pierdes un punto")
+    else:
+        print("\x1b[1;32m"+"Atajaste!")
+        print()
+        print("\x1b[1;32m"+"Ganaste 1 punto extra.")
+        print()
 
 
 penal()
+input("\033[0;37m"+"Presiona 1 para continuar: ")
+atajar()
