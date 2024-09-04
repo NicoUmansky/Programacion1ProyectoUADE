@@ -21,12 +21,15 @@ def mostrar_ranking():
 
 def main():
     init()
-    while True:
+    
+    continuar = True
+    
+    while continuar:
         opcion = mostrar_menu()
 
         if opcion == '1':
             mostrar_ranking()
-            
+        
         elif opcion == '2':
             print(Fore.RED + "¡Bienvenido a Kick & Quiz!")
             print(Fore.YELLOW + "Por favor, loguéese para empezar a jugar")
@@ -84,14 +87,14 @@ def main():
             puntuacionFinal = jugarPreguntas(preguntas, opciones, respuestasCorrectas)
             print(Fore.GREEN + f"Juego terminado. Tu puntuación final es {puntuacionFinal}.")
 
-            cambiar_usuario = input(Fore.WHITE + "¿Quieres cambiar de usuario para volver a intentar? (Si/No): ").lower()
-            if cambiar_usuario != 'Si':
+            cambiar_usuario = input(Fore.WHITE + "¿Quieres cambiar de usuario para volver a intentar? (SI/NO): ").upper()
+            if cambiar_usuario != 'SI':
                 print(Fore.RED + "¡Gracias por jugar! Hasta la próxima.")
-                break
+                continuar = False
 
         elif opcion == '3':
             print(Fore.RED + "¡Gracias por jugar! Hasta la próxima.")
-            break
+            continuar = False
         
         else:
             print(Fore.RED + "Opción inválida. Por favor, seleccione 1, 2 o 3.")
