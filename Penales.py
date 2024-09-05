@@ -1,5 +1,11 @@
 
 import random
+
+green = '\x1b[32m'
+red = '\x1b[31m'
+white = '\x1b[37m'
+
+
 def arco1():
     print("┎⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯┒")
     print("|  ✅  ┆  ✅  ┆  ❌  |")
@@ -53,9 +59,9 @@ def penal():
     if config[fil][col] == 1:
         gol()
         print()
-        print("\x1b[1;32m"+"Gol! Obtienes 1 punto extra.")
+        print(green +"Gol! Obtienes 1 punto extra.")
     else:
-        print("\033[1;31m"+"Fallaste!")
+        print(red +"Fallaste!")
 
 #Luego de patear un penal, tendras la posibilidad de atajar uno
 def atajar():
@@ -86,5 +92,5 @@ def atajar():
 
 
 penal()
-input("\033[0;37m"+"Presiona 1 para continuar: ")
+input(white +"Presiona 1 para continuar: ")
 atajar()

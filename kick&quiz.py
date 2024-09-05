@@ -1,40 +1,43 @@
 from inicioSesion import inicioSesion
 from triviaPreguntas import jugarPreguntas
-from colorama import Fore, init
 
-#python3 -m pip install colorama
+# Colores usando código ANSI
+cyan = '\x1b[36m'
+yellow = '\x1b[33m'
+white = '\x1b[37m'
+green = '\x1b[32m'
+red = '\x1b[31m'
+blue = '\x1b[34m'
 
-def mostrar_menu():
-    print(Fore.CYAN + "Menú Principal:")
-    print(Fore.YELLOW + "1. Ver ranking")
-    print(Fore.YELLOW + "2. Jugar")
-    print(Fore.YELLOW + "3. Salir")
-    opcion = input(Fore.WHITE + "Seleccione una opción (1, 2 o 3): ")
+def mostrarMenu():
+    print(cyan + "Menú Principal:")
+    print(yellow + "1. Ver ranking")
+    print(yellow + "2. Jugar")
+    print(yellow + "3. Salir")
+    opcion = input(white + "Seleccione una opción (1, 2 o 3): ")
     return opcion
 
-def mostrar_ranking():
-    print(Fore.GREEN + "Ranking:")
-    print(Fore.WHITE + "1. Usuario1 - 100 puntos")
-    print(Fore.WHITE + "2. Usuario2 - 80 puntos")
-    print(Fore.WHITE + "3. Usuario3 - 60 puntos")
-    input(Fore.WHITE + "Presiona Enter para volver al menú principal.")
+def mostrarRanking():
+    print(green + "Ranking:")
+    print(white + "1. Usuario1 - 100 puntos")
+    print(white + "2. Usuario2 - 80 puntos")
+    print(white + "3. Usuario3 - 60 puntos")
+    input(white + "Presiona Enter para volver al menú principal.")
 
 def main():
-    init()
-    
     continuar = True
     
     while continuar:
-        opcion = mostrar_menu()
+        opcion = mostrarMenu()
 
         if opcion == '1':
-            mostrar_ranking()
+            mostrarRanking()
         
         elif opcion == '2':
-            print(Fore.RED + "¡Bienvenido a Kick & Quiz!")
-            print(Fore.YELLOW + "Por favor, loguéese para empezar a jugar")
+            print(red + "¡Bienvenido a Kick & Quiz!")
+            print(yellow + "Por favor, loguéese para empezar a jugar")
             inicioSesion()
-            print(Fore.BLUE + "¡Empecemos a jugar!")
+            print(blue + "¡Empecemos a jugar!")
 
             preguntas = [
                 "¿Cuál es la montaña más alta de Argentina?",
@@ -85,19 +88,19 @@ def main():
             respuestasCorrectas = [0, 1, 2, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 3, 0]
 
             puntuacionFinal = jugarPreguntas(preguntas, opciones, respuestasCorrectas)
-            print(Fore.GREEN + f"Juego terminado. Tu puntuación final es {puntuacionFinal}.")
+            print(green + f"Juego terminado. Tu puntuación final es {puntuacionFinal}.")
 
-            cambiar_usuario = input(Fore.WHITE + "¿Quieres cambiar de usuario para volver a intentar? (SI/NO): ").upper()
-            if cambiar_usuario != 'SI':
-                print(Fore.RED + "¡Gracias por jugar! Hasta la próxima.")
+            cambiarUsuario = input(white + "¿Quieres cambiar de usuario para volver a intentar? (SI/NO): ").upper()
+            if cambiarUsuario != 'SI':
+                print(red + "¡Gracias por jugar! Hasta la próxima.")
                 continuar = False
 
         elif opcion == '3':
-            print(Fore.RED + "¡Gracias por jugar! Hasta la próxima.")
+            print(red + "¡Gracias por jugar! Hasta la próxima.")
             continuar = False
         
         else:
-            print(Fore.RED + "Opción inválida. Por favor, seleccione 1, 2 o 3.")
+            print(red + "Opción inválida. Por favor, seleccione 1, 2 o 3.")
 
 if __name__ == "__main__":
     main()
