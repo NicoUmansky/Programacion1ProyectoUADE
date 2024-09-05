@@ -16,6 +16,6 @@ def mostrarRanking():
 def actualizarRanking(nombreUsuario, puntuacionFinal):
     for puntuacion in puntuaciones:
         if puntuacion[0] == nombreUsuario:
-            print("Ya estás en el ranking. No puedes volver a jugar.")
+            print("Ya estás en el ranking. No podes volver a jugar.")
             return
     puntuaciones.append([nombreUsuario, puntuacionFinal])

@@ -41,7 +41,7 @@ def main():
                         usuarioEnRanking = True
                 
                 if usuarioEnRanking:
-                    print(red + "Ya has jugado y estás en el ranking. Por favor, inicia sesión con otro usuario.")
+                    print(red + "Ya jugaste y estás en el ranking. Por favor, inicia sesión con otro usuario.")
                 else:
                     break
             
@@ -100,13 +100,13 @@ def main():
 
             actualizarRanking(nombreUsuario, puntuacionFinal)
 
-            cambiarUsuario = input(white + "¿Quieres cambiar de usuario para volver a intentar? (SI/NO): ").upper()
+            cambiarUsuario = input(white + "¿Quéres cambiar de usuario para volver a intentar? (SI/NO): ").upper()
             if cambiarUsuario != 'SI':
-                print(red + "¡Gracias por jugar! Hasta la próxima.")
+                print(red + "¡Gracias por jugar! Te esperamos nuevamente.")
                 continuar = False
 
         elif opcion == '3':
-            print(red + "¡Gracias por jugar! Hasta la próxima.")
+            print(red + "¡Gracias por jugar! Te esperamos nuevamente.")
             continuar = False
         
         else:
