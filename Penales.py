@@ -1,10 +1,8 @@
-
 import random
 
 green = '\x1b[32m'
 red = '\x1b[31m'
 white = '\x1b[37m'
-
 
 def arco1():
     print("┎⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯┒")

@@ -1,5 +1,6 @@
 from inicioSesion import inicioSesion
 from triviaPreguntas import jugarPreguntas
+from ranking import mostrarRanking, actualizarRanking, puntuaciones
 
 # Colores usando código ANSI
 cyan = '\x1b[36m'
@@ -17,13 +18,6 @@ def mostrarMenu():
     opcion = input(white + "Seleccione una opción (1, 2 o 3): ")
     return opcion
 
-def mostrarRanking():
-    print(green + "Ranking:")
-    print(white + "1. Usuario1 - 100 puntos")
-    print(white + "2. Usuario2 - 80 puntos")
-    print(white + "3. Usuario3 - 60 puntos")
-    input(white + "Presiona Enter para volver al menú principal.")
-
 def main():
     continuar = True
     
@@ -36,7 +30,21 @@ def main():
         elif opcion == '2':
             print(red + "¡Bienvenido a Kick & Quiz!")
             print(yellow + "Por favor, loguéese para empezar a jugar")
-            inicioSesion()
+            
+            while True:
+                nombreUsuario = inicioSesion()
+                
+                # Verificar si el usuario está en el ranking
+                usuarioEnRanking = False
+                for usuario in puntuaciones:
+                    if usuario[0] == nombreUsuario:
+                        usuarioEnRanking = True
+                
+                if usuarioEnRanking:
+                    print(red + "Ya has jugado y estás en el ranking. Por favor, inicia sesión con otro usuario.")
+                else:
+                    break
+            
             print(blue + "¡Empecemos a jugar!")
 
             preguntas = [
@@ -89,6 +97,8 @@ def main():
 
             puntuacionFinal = jugarPreguntas(preguntas, opciones, respuestasCorrectas)
             print(green + f"Juego terminado. Tu puntuación final es {puntuacionFinal}.")
+
+            actualizarRanking(nombreUsuario, puntuacionFinal)
 
             cambiarUsuario = input(white + "¿Quieres cambiar de usuario para volver a intentar? (SI/NO): ").upper()
             if cambiarUsuario != 'SI':
