@@ -39,6 +39,8 @@ def jugarPreguntas(preguntas, opciones, respuestasCorrectas):
                 puntuacion += 1
             else:
                 puntuacion -= 1
+            print(f"\033[1;32mTu puntuación hasta el momento es de {puntuacion}.\033[0m")
+            int(input("\033[0;37m"+"Presiona 1 para continuar con las preguntas: "))
         
         else:
             print("\033[1;34mRespuesta incorrecta.\033[0m")
