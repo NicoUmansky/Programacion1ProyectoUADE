@@ -1,8 +1,8 @@
 from inicioSesion import inicioSesion
 from triviaPreguntas import jugarPreguntas
 from ranking import mostrarRanking, actualizarRanking, puntuaciones
-from Penales import arco1, arco2, arco3, gol, penal, atajar
 import random
+
 # Colores usando código ANSI
 cyan = '\x1b[36m'
 yellow = '\x1b[33m'
