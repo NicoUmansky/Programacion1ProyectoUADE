@@ -29,7 +29,7 @@ def jugarPreguntas(preguntas, opciones, respuestasCorrectas):
         
         if respuestaUsuario == respuestasCorrectas[i]:
             print("\033[1;32m¡Respuesta correcta!\033[0m")
-            puntuacion += 1
+            puntuacion += 2
             Gol = penal()
             if Gol == True:
                 puntuacion += 1
