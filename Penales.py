@@ -56,7 +56,7 @@ def penal():
         print("\x1b[1;32m"+"Gol! Obtienes 1 punto extra.")
         Gol = True
     else:   
-        print("\033[1;31m"+"Fallaste!")
+        print("\033[1;31m"+"Fallaste!, no obtienes puntos extra")
     
     return Gol  
 
