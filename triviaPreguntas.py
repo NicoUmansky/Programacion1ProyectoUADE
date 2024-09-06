@@ -1,13 +1,9 @@
-from colorama import Fore, init
-
 def mostrarPregunta(pregunta, opciones):
-    init()
     print(pregunta)
     for i in range(len(opciones)):
-        print(Fore.WHITE + f"{i+1}. {opciones[i]}")
+        print(f"\033[1;37m{i+1}. {opciones[i]}\033[0m")
 
 def obtenerRespuestaValida(opciones):
-    init()
     while True:
         respuesta = input("Seleccione una opción (1-4): ")
         if respuesta.isdigit():
@@ -15,9 +11,9 @@ def obtenerRespuestaValida(opciones):
             if 0 <= respuesta < len(opciones):
                 return respuesta
             else:
-                print(Fore.YELLOW +"Opción inválida. Por favor, seleccione un número entre 1 y 4.")
+                print("\033[1;33mOpción inválida. Por favor, seleccione un número entre 1 y 4.\033[0m")
         else:
-            print(Fore.YELLOW +"Entrada inválida. Por favor, ingrese un número entre 1 y 4.")
+            print("\033[1;33mEntrada inválida. Por favor, ingrese un número entre 1 y 4.\033[0m")
 
 def jugarPreguntas(preguntas, opciones, respuestasCorrectas):
     vidas = 3
@@ -31,11 +27,11 @@ def jugarPreguntas(preguntas, opciones, respuestasCorrectas):
         respuestaUsuario = obtenerRespuestaValida(opciones[i])
         
         if respuestaUsuario == respuestasCorrectas[i]:
-            print(Fore.GREEN + "¡Respuesta correcta!")
+            print("\033[1;32m¡Respuesta correcta!\033[0m")
             puntuacion += 1
         else:
-            print(Fore.BLUE +"Respuesta incorrecta.")
+            print("\033[1;34mRespuesta incorrecta.\033[0m")
             vidas -= 1
-            print(Fore.RED + f"Te quedan {vidas} vidas.")
+            print(f"\033[1;31mTe quedan {vidas} vidas.\033[0m")
 
     return puntuacion
