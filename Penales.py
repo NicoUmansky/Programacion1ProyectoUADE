@@ -57,6 +57,7 @@ def penal():
         Gol = True
     else:
         print("\033[1;31m"+"Fallaste!")
+    return Gol
 
 #Luego de patear un penal, tendras la posibilidad de atajar uno
 def atajar():
