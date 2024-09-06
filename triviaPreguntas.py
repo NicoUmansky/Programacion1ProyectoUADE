@@ -1,4 +1,4 @@
-from Penales import penal, arco1, arco2, arco3, gol, atajar
+from Penales import penal, gol
 def mostrarPregunta(pregunta, opciones):
     print(pregunta)
     for i in range(len(opciones)):
@@ -38,3 +38,4 @@ def jugarPreguntas(preguntas, opciones, respuestasCorrectas):
             print(f"\033[1;31mTe quedan {vidas} vidas.\033[0m")
 
     return puntuacion
+
