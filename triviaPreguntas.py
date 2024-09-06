@@ -34,7 +34,11 @@ def jugarPreguntas(preguntas, opciones, respuestasCorrectas):
             if Gol == True:
                 puntuacion += 1
             input("\033[0;37m"+"Presiona 1 para continuar: ")
-            atajar()
+            Atjar = atajar()
+            if Atjar == True:
+                puntuacion += 1
+            else:
+                puntuacion -= 1
         
         else:
             print("\033[1;34mRespuesta incorrecta.\033[0m")

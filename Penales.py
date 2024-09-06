@@ -62,6 +62,7 @@ def penal():
 
 #Luego de patear un penal, tendras la posibilidad de atajar uno
 def atajar():
+    Atajar = False
     print("Es momento de atajar un penal para tener la posibilidad de sumar puntos extra, elige a donde quieres atajar:")
     print("┎⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯┒")
     print("|  1  ┆  2  ┆  3  |")
@@ -85,7 +86,9 @@ def atajar():
         print("\x1b[1;32m"+"Atajaste!")
         print()
         print("\x1b[1;32m"+"Ganaste 1 punto extra.")
+        Atajar = True
         print()
+    return Atajar
 
 
 #penal()
