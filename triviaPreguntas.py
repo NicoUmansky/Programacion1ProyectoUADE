@@ -1,4 +1,4 @@
-from Penales import penal, gol
+from Penales import penal, atajar
 def mostrarPregunta(pregunta, opciones):
     print(pregunta)
     for i in range(len(opciones)):
@@ -31,6 +31,10 @@ def jugarPreguntas(preguntas, opciones, respuestasCorrectas):
             print("\033[1;32m¡Respuesta correcta!\033[0m")
             puntuacion += 1
             penal()
+            if Gol == True:
+                puntuacion += 1
+            input("\033[0;37m"+"Presiona 1 para continuar: ")
+            atajar()
         
         else:
             print("\033[1;34mRespuesta incorrecta.\033[0m")

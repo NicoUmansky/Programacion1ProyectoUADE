@@ -32,6 +32,7 @@ def gol():
     print("░╚═════╝░░╚════╝░░╚════╝░░╚════╝░╚══════╝╚═╝")
 
 def penal():
+    Gol = False
     print("Es momento de patear un penal para tener la posibilidad de sumar puntos extra, elige a donde quieres patear:")
     print("┎⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯┒")
     print("|  1  ┆  2  ┆  3  |")
@@ -53,6 +54,7 @@ def penal():
         gol()
         print()
         print("\x1b[1;32m"+"Gol! Obtienes 1 punto extra.")
+        Gol = True
     else:
         print("\033[1;31m"+"Fallaste!")
 
