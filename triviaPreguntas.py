@@ -1,4 +1,4 @@
-from Penales import penal, atajar
+from Penales import penal, atajar, Gol
 def mostrarPregunta(pregunta, opciones):
     print(pregunta)
     for i in range(len(opciones)):
