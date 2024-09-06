@@ -1,5 +1,6 @@
 import random
 def arco1():
+    print("...")
     print("┎⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯┒")
     print("|  ✅  ┆  ✅  ┆  ❌  |")
     print("|  ❌  ┆  ❌  ┆  ✅  |")
@@ -7,6 +8,7 @@ def arco1():
     matrix1 = [[1, 1, 0], [0, 0, 1], [0, 1, 1]]
     return matrix1
 def arco2():
+    print("...")
     print("┎⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯┒")
     print("|  ❌  ┆  ✅  ┆  ✅  |")
     print("|  ✅  ┆  ✅  ┆  ❌  |")
@@ -14,6 +16,7 @@ def arco2():
     matrix2 = [[0, 1, 1], [1, 1, 0], [1, 0, 0]]
     return matrix2
 def arco3():
+    print("...")
     print("┎⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯┒")
     print("|  ✅  ┆  ✅  ┆  ❌  |")
     print("|  ❌  ┆  ✅  ┆  ❌  |")
