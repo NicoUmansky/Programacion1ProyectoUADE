@@ -73,28 +73,28 @@ def main():
             
             opciones = [
                 ["Aconcagua", "Cerro Torre", "Monte Fitz Roy", "Nevado de Cachi"],
-                ["1930", "1934", "1950", "1928"],
-                ["Córdoba", "Mendoza", "Tucumán", "Santa Fe"],
-                ["Hipólito Yrigoyen", "Bartolomé Mitre", "Julio A. Roca", "Domingo F. Sarmiento"],
+                ["1928", "1930", "1934", "1950"],
+                ["Mendoza", "Córdoba", "Tucumán", "Santa Fe"],
+                ["Bartolomé Mitre", "Julio A. Roca", "Domingo F. Sarmiento", "Hipólito Yrigoyen"],
                 ["El Calafate", "Ushuaia", "Bariloche", "San Martín de los Andes"],
                 ["Santa Rosa", "General Pico", "San Luis", "Resistencia"],
-                ["Río Paraná", "Río Uruguay", "Río Colorado", "Río Salado"],
-                ["1821", "1816", "1830", "1806"],
-                ["Jorge Luis Borges", "Julio Cortázar", "Adolfo Bioy Casares", "Manuel Puig"],
+                ["Río Uruguay", "Río Paraná", "Río Colorado", "Río Salado"],
+                ["1816", "1821", "1830", "1806"],
+                ["Julio Cortázar", "Adolfo Bioy Casares", "Jorge Luis Borges", "Manuel Puig"],
                 ["Chinchulines", "Provoleta", "Empanadas", "Milanesas"],
-                ["Mendoza", "San Juan", "La Rioja", "Salta"],
-                ["Carlos Gardel", "Atahualpa Yupanqui", "Mercedes Sosa", "Sandro"],
+                ["San Juan", "La Rioja", "Salta", "Mendoza"],
+                ["Atahualpa Yupanqui", "Mercedes Sosa", "Carlos Gardel", "Sandro"],
                 ["1947", "1951", "1937", "1960"],
-                ["Parque Nacional Iguazú", "Parque Nacional Nahuel Huapi", "Parque Nacional Los Glaciares", "Parque Nacional Talampaya"],
-                ["Río Uruguay", "Río Paraná", "Río de la Plata", "Río Colorado"],
-                ["Ushuaia", "Río Gallegos", "El Chaltén", "Puerto Madryn"],
-                ["1816", "1810", "1820", "1806"],
-                ["Salta", "Formosa", "Jujuy", "Misiones"],
+                ["Parque Nacional Nahuel Huapi", "Parque Nacional Iguazú", "Parque Nacional Los Glaciares", "Parque Nacional Talampaya"],
+                ["Río Paraná", "Río Uruguay", "Río de la Plata", "Río Colorado"],
+                ["Río Gallegos", "Ushuaia", "El Chaltén", "Puerto Madryn"],
+                ["1810", "1820", "1806", "1816"],
+                ["Formosa", "Salta", "Jujuy", "Misiones"],
                 ["SAC-B", "ARSAT-1", "SAOCOM 1A", "LUSAT-1"],
-                ["Mendoza", "San Juan", "La Rioja", "San Rafael"]
+                ["San Juan", "La Rioja", "Mendoza", "San Rafael"]
             ]
             
-            respuestasCorrectas = [0, 1, 2, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 3, 0]
+            respuestasCorrectas = [0, 1, 1, 3, 0, 0, 1, 1, 2, 0, 3, 2, 0, 1, 1, 1, 3, 0, 3, 2]
 
             puntuacionFinal = jugarPreguntas(preguntas, opciones, respuestasCorrectas)
             print(green + f"Juego terminado. Tu puntuación final es {puntuacionFinal}.")
