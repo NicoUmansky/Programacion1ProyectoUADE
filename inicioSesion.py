@@ -1,5 +1,4 @@
 def inicioSesion():
-    # Matriz con el mail, la contraseña y el nombre de cada uno de los usuarios que se pueden loguear 
     usuarios = [
         ["eugeniavarando@gmail.com", "1234", "Eugenia Varando"],
         ["micaelacembal@gmail.com", "1605", "Micaela Cembal"],
@@ -15,7 +14,6 @@ def inicioSesion():
     while not validarMail(mailUsuario):
         print("Mail incorrecto.")
         mailUsuario = input("Reingrese su mail: ")
-
     contraUsuario = input("Ingrese su contraseña (4 dígitos): ")
     while not validarContra(contraUsuario):
         print("Contraseña incorrecta. Debe ser un número de 4 dígitos.")

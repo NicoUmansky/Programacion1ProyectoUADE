@@ -2,16 +2,23 @@ puntuaciones = []
 
 yellow = '\x1b[33m'
 blue = '\x1b[34m'
+    
+def obtenerPuntos(puntuacion):
+    return puntuacion[1]
 
 def mostrarRanking():
-    if not puntuaciones:
+    if len(puntuaciones) == 0:
         print("No hay puntuaciones para mostrar.")
     else:
-        puntuacionesOrdenadas = sorted(puntuaciones, key=lambda x: x[1], reverse=True)
+        puntuacionesOrdenadas = sorted(puntuaciones, key=obtenerPuntos, reverse=True)
         print(blue + "Ranking:")
-        for i, (nombre, puntos) in enumerate(puntuacionesOrdenadas):
+        for i in range(len(puntuacionesOrdenadas)):
+            nombre = puntuacionesOrdenadas[i][0]
+            puntos = puntuacionesOrdenadas[i][1]
             print(yellow + f"{i + 1}. {nombre} - {puntos} puntos")
+    
     input(yellow + "Presiona Enter para volver al menú principal.")
+
 
 def actualizarRanking(nombreUsuario, puntuacionFinal):
     for puntuacion in puntuaciones:
