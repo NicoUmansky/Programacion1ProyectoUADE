@@ -31,21 +31,24 @@ def main():
         elif opcion == '2':
             print(red + "¡Bienvenido a Kick & Quiz!")
             print(yellow + "Por favor, loguéese para empezar a jugar")
-            
-            while True:
+
+            cambiarUsuario = True
+            while cambiarUsuario:
                 nombreUsuario = inicioSesion()
-                
-                # Verificar si el usuario está en el ranking
                 usuarioEnRanking = False
-                for usuario in puntuaciones:
-                    if usuario[0] == nombreUsuario:
+
+                i = 0
+                while i < len(puntuaciones):
+                    if puntuaciones[i][0] == nombreUsuario:
                         usuarioEnRanking = True
-                
+                        i = len(puntuaciones)
+                    i += 1
+
                 if usuarioEnRanking:
                     print(red + "Ya jugaste y estás en el ranking. Por favor, inicia sesión con otro usuario.")
                 else:
-                    break
-            
+                    cambiarUsuario = False 
+
             print(blue + "¡Empecemos a jugar!")
 
             preguntas = [
@@ -101,7 +104,7 @@ def main():
 
             actualizarRanking(nombreUsuario, puntuacionFinal)
 
-            cambiarUsuario = input(white + "¿Quéres cambiar de usuario para volver a intentar? (SI/NO): ").upper()
+            cambiarUsuario = input(white + "¿Deseas cambiar de usuario para volver a intentar? (SI/NO): ").upper()
             if cambiarUsuario != 'SI':
                 print(red + "¡Gracias por jugar! Te esperamos nuevamente.")
                 continuar = False
