@@ -1,4 +1,5 @@
 from Penales import penal, atajar
+import random
 def mostrarPregunta(pregunta, opciones):
     print(pregunta)
     for i in range(len(opciones)):
@@ -20,32 +21,65 @@ def jugarPreguntas(preguntas, opciones, respuestasCorrectas):
     vidas = 3
     puntuacion = 0
 
-    for i in range(len(preguntas)):
+    # for i in range(len(preguntas)):
+    #     if vidas <= 0:
+    #         return puntuacion
+
+    #     mostrarPregunta(preguntas[i], opciones[i])
+    #     respuestaUsuario = obtenerRespuestaValida(opciones[i])
+        
+    #     if respuestaUsuario == respuestasCorrectas[i]:
+    #         print("\033[1;32m¡Respuesta correcta!\033[0m")
+    #         puntuacion += 2
+    #         Gol = penal()
+    #         if Gol == True:
+    #             puntuacion += 1
+    #         input("\033[0;37m"+"Presiona cualquier botón para continuar: ")
+    #         Atjar = atajar()
+    #         if Atjar == True:
+    #             puntuacion += 1
+    #         else:
+    #             puntuacion -= 1
+    #         print(f"\033[1;32mTu puntuación hasta el momento es de {puntuacion}.\033[0m")
+    #         int(input("\033[0;37m"+"Presiona cualquier botón para continuar con las preguntas: "))
+        
+    #     else:
+    #         print("\033[1;34mRespuesta incorrecta.\033[0m")
+    #         vidas -= 1
+    #         print(f"\033[1;31mTe quedan {vidas} vidas.\033[0m")
+    preguntasHechas = []
+    while len(preguntasHechas) < len(preguntas):
+        indiceElegido = random.randint(0,len(preguntas)-1)
+        while indiceElegido in preguntasHechas:
+            indiceElegido = random.randint(0,len(preguntas)-1)
+        preguntasHechas.append(indiceElegido)
         if vidas <= 0:
             return puntuacion
 
-        mostrarPregunta(preguntas[i], opciones[i])
-        respuestaUsuario = obtenerRespuestaValida(opciones[i])
+        mostrarPregunta(preguntas[indiceElegido], opciones[indiceElegido])
+        respuestaUsuario = obtenerRespuestaValida(opciones[indiceElegido])
         
-        if respuestaUsuario == respuestasCorrectas[i]:
+        if respuestaUsuario == respuestasCorrectas[indiceElegido]:
             print("\033[1;32m¡Respuesta correcta!\033[0m")
             puntuacion += 2
             Gol = penal()
             if Gol == True:
                 puntuacion += 1
-            input("\033[0;37m"+"Presiona 1 para continuar: ")
+            input("\033[0;37m"+"Presiona cualquier botón para continuar: ")
             Atjar = atajar()
             if Atjar == True:
                 puntuacion += 1
             else:
                 puntuacion -= 1
             print(f"\033[1;32mTu puntuación hasta el momento es de {puntuacion}.\033[0m")
-            int(input("\033[0;37m"+"Presiona 1 para continuar con las preguntas: "))
+            input("\033[0;37m"+"Presiona cualquier botón para continuar con las preguntas: ")
         
         else:
             print("\033[1;34mRespuesta incorrecta.\033[0m")
             vidas -= 1
             print(f"\033[1;31mTe quedan {vidas} vidas.\033[0m")
+
+
 
     return puntuacion
 

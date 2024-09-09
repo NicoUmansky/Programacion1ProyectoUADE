@@ -30,7 +30,7 @@ def main():
         
         elif opcion == '2':
             print(red + "¡Bienvenido a Kick & Quiz!")
-            print(yellow + "Por favor, loguéese para empezar a jugar")
+            print(yellow + "Por favor, ingrese a su cuenta o creala para empezar a jugar")
 
             cambiarUsuario = True
             while cambiarUsuario:
@@ -71,7 +71,13 @@ def main():
                 "¿En qué año se declaró la independencia de Argentina?",
                 "¿Qué provincia argentina limita con Bolivia y Paraguay?",
                 "¿Cuál es el nombre del primer satélite argentino lanzado al espacio?",
-                "¿En qué ciudad argentina se realiza anualmente la Fiesta Nacional de la Vendimia?"
+                "¿En qué ciudad argentina se realiza anualmente la Fiesta Nacional de la Vendimia?",
+                "¿Cuál fue la primera película argentina en ganar un premio Óscar?",
+                "¿En qué año se inauguró el Obelisco de Buenos Aires?",
+                "¿Qué famoso músico argentino lideró la banda Soda Stereo?",
+
+
+                
             ]
             
             opciones = [
@@ -94,10 +100,13 @@ def main():
                 ["1810", "1820", "1806", "1816"],
                 ["Formosa", "Salta", "Jujuy", "Misiones"],
                 ["SAC-B", "ARSAT-1", "SAOCOM 1A", "LUSAT-1"],
-                ["San Juan", "La Rioja", "Mendoza", "San Rafael"]
+                ["San Juan", "La Rioja", "Mendoza", "San Rafael"],
+                ["La Historia Oficial", "El Secreto de Sus Ojos", "Camila", "Nueve Reinas"],
+                ["1936", "1945", "1952", "1960"],
+                ["Luis Alberto Spinetta", "Fito Páez", "Charly García", "Gustavo Cerati"]
             ]
             
-            respuestasCorrectas = [0, 1, 1, 3, 0, 0, 1, 1, 2, 0, 3, 2, 0, 1, 1, 1, 3, 0, 3, 2]
+            respuestasCorrectas = [0, 1, 1, 3, 0, 0, 1, 1, 2, 0, 3, 2, 0, 1, 1, 1, 3, 0, 3, 2,1,0,3]
 
             puntuacionFinal = jugarPreguntas(preguntas, opciones, respuestasCorrectas)
             print(green + f"Juego terminado. Tu puntuación final es {puntuacionFinal}.")

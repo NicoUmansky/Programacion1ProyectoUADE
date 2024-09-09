@@ -33,6 +33,8 @@ def gol():
     print("██║░░╚██╗██║░░██║██║░░██║██║░░██║██║░░░░░╚═╝")
     print("╚██████╔╝╚█████╔╝╚█████╔╝╚█████╔╝███████╗██╗")
     print("░╚═════╝░░╚════╝░░╚════╝░░╚════╝░╚══════╝╚═╝")
+    
+validarCasilla = lambda casilla : casilla.isdigit() and 1 <= int(casilla) <= 9
 
 def penal():
     Gol = False
@@ -41,8 +43,11 @@ def penal():
     print("|  1  ┆  2  ┆  3  |")
     print("|  4  ┆  5  ┆  6  |")
     print("|  7  ┆  8  ┆  9  |")
-    casilla = int(input("Ingresa el número de la casilla a la que quieres patear: "))
-
+    casilla = input("Ingresa el número de la casilla a la que quieres patear (1 al 9): ")
+    while not validarCasilla(casilla):
+        print("Casilla inexistente. Intente nuevamente")
+        casilla =input("Ingresa el número de la casilla a la que quieres patear (1 al 9): ")
+    
     configuracion = random.randint(1,3)
     if configuracion == 1:
         config = arco1()
@@ -51,6 +56,7 @@ def penal():
     else:
         config = arco3()
     print()
+    casilla = int(casilla)
     fil = (casilla - 1) // 3
     col = (casilla - 1) % 3
     if config[fil][col] == 1:
@@ -72,7 +78,12 @@ def atajar():
     print("|  4  ┆  5  ┆  6  |")
     print("|  7  ┆  8  ┆  9  |")
     print()
-    casilla = int(input("Ingresa el número de la casilla a la que quieres atajar: "))
+    
+    casilla = int(input("Ingresa el número de la casilla a la que quieres patear: "))
+    while not validarCasilla(casilla):
+        print("Casilla inexistente")
+        casilla = int(input("Ingresa el número de la casilla a la que quieres patear: "))
+    
     configuracion = random.randint(1,3)
     if configuracion == 1:
         config = arco1()
