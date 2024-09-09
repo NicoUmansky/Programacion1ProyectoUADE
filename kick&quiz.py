@@ -13,8 +13,8 @@ blue = '\x1b[34m'
 
 def mostrarMenu():
     print(cyan + "Menú Principal:")
-    print(yellow + "1. Ver ranking")
-    print(yellow + "2. Jugar")
+    print(yellow + "1. Jugar")
+    print(yellow + "2. Ver ranking")
     print(yellow + "3. Salir")
     opcion = input(white + "Seleccione una opción (1, 2 o 3): ")
     return opcion
@@ -26,9 +26,6 @@ def main():
         opcion = mostrarMenu()
 
         if opcion == '1':
-            mostrarRanking()
-        
-        elif opcion == '2':
             print(red + "¡Bienvenido a Kick & Quiz!")
             print(yellow + "Por favor, ingrese a su cuenta o creala para empezar a jugar")
 
@@ -75,9 +72,6 @@ def main():
                 "¿Cuál fue la primera película argentina en ganar un premio Óscar?",
                 "¿En qué año se inauguró el Obelisco de Buenos Aires?",
                 "¿Qué famoso músico argentino lideró la banda Soda Stereo?",
-
-
-                
             ]
             
             opciones = [
@@ -117,7 +111,10 @@ def main():
             if cambiarUsuario != 'SI':
                 print(red + "¡Gracias por jugar! Te esperamos nuevamente.")
                 continuar = False
-
+    
+        elif opcion == '2':
+            mostrarRanking()
+    
         elif opcion == '3':
             print(red + "¡Gracias por jugar! Te esperamos nuevamente.")
             continuar = False

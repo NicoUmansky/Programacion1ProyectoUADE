@@ -11,27 +11,14 @@ def inicioSesion():
     validarContra = lambda contra: contra.isdigit() and len(contra) == 4
     validarInicio = lambda eleccion:  eleccion.isdigit() and decision in ['1', '2']
     
-    decision = input("Presione 1 para Registrarse o 2 para Iniciar Sesion en su cuenta: ")
+    decision = input("Presione 1 para Iniciar Sesión o 2 para Registrarse en su cuenta: ")
     while not validarInicio(decision):
         print("Opción incorrecta.")
-        decision = input("Presione 1 para Registrarse o 2 para Iniciar Sesion en su cuenta: ")
-    # Registro de usuario
-    if decision == '1': 
-        mailUsuario = input("Ingrese su mail: ")
-        while validarMail(mailUsuario):
-            print("Mail ya registrado!")
-            mailUsuario = input("Reingrese su mail: ")
-        contraUsuario = input("Ingrese su contraseña (4 dígitos): ")
-        while not validarContra(contraUsuario):
-            print("Contraseña incorrecta. Debe ser un número de 4 dígitos.")
-            contraUsuario = input("Reingrese su contraseña (4 dígitos): ")
-        nombreUsuario = input("Ingrese su nombre: ")
-        usuarios.append([mailUsuario, contraUsuario, nombreUsuario])
-        print(f"¡Hola {nombreUsuario}!")
-        return nombreUsuario
+        decision = input("Presione 1 para Iniciar Sesión o 2 para Registrarse en su cuenta: ")
+   
     
     # Inicia Sesión
-    else:    
+    if decision == '1':    
         mailUsuario = input("Ingrese su mail: ")
         while not validarMail(mailUsuario):
             print("Mail incorrecto.")
@@ -50,4 +37,19 @@ def inicioSesion():
         
         print(f"¡Hola {nombreUsuario}!")
         return nombreUsuario 
+    
+     # Registro de usuario
+    else: 
+        mailUsuario = input("Ingrese su mail: ")
+        while validarMail(mailUsuario):
+            print("Mail ya registrado!")
+            mailUsuario = input("Reingrese su mail: ")
+        contraUsuario = input("Ingrese su contraseña (4 dígitos): ")
+        while not validarContra(contraUsuario):
+            print("Contraseña incorrecta. Debe ser un número de 4 dígitos.")
+            contraUsuario = input("Reingrese su contraseña (4 dígitos): ")
+        nombreUsuario = input("Ingrese su nombre: ")
+        usuarios.append([mailUsuario, contraUsuario, nombreUsuario])
+        print(f"¡Hola {nombreUsuario}!")
+        return nombreUsuario
 
