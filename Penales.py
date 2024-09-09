@@ -5,24 +5,24 @@ def arco1():
     print("|  ✅  ┆  ✅  ┆  ❌  |")
     print("|  ❌  ┆  ❌  ┆  ✅  |")
     print("|  ❌  ┆  ✅  ┆  ✅  |")
-    matriz1 = [[1, 1, 0], [0, 0, 1], [0, 1, 1]]
-    return matriz1
+    matrix1 = [[1, 1, 0], [0, 0, 1], [0, 1, 1]]
+    return matrix1
 def arco2():
     print("...")
     print("┎⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯┒")
     print("|  ❌  ┆  ✅  ┆  ✅  |")
     print("|  ✅  ┆  ✅  ┆  ❌  |")
     print("|  ✅  ┆  ❌  ┆  ❌  |")
-    matriz2 = [[0, 1, 1], [1, 1, 0], [1, 0, 0]]
-    return matriz2
+    matrix2 = [[0, 1, 1], [1, 1, 0], [1, 0, 0]]
+    return matrix2
 def arco3():
     print("...")
     print("┎⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯┒")
     print("|  ✅  ┆  ✅  ┆  ❌  |")
     print("|  ❌  ┆  ✅  ┆  ❌  |")
     print("|  ✅  ┆  ✅  ┆  ❌  |")
-    matriz3 = [[1, 1, 0], [0, 1, 0], [1, 1, 0]]
-    return matriz3  
+    matrix3 = [[1, 1, 0], [0, 1, 0], [1, 1, 0]]
+    return matrix3  
 
 def gol():
     print("...")
@@ -34,7 +34,7 @@ def gol():
     print("╚██████╔╝╚█████╔╝╚█████╔╝╚█████╔╝███████╗██╗")
     print("░╚═════╝░░╚════╝░░╚════╝░░╚════╝░╚══════╝╚═╝")
     
-validarCasillero = lambda casillero : casillero.isdigit() and 1 <= int(casillero) <= 9
+#validarCasilla = lambda casilla : casilla.isdigit() and 1 <= int(casilla) <= 9
 
 def penal():
     Gol = False
@@ -43,10 +43,10 @@ def penal():
     print("|  1  ┆  2  ┆  3  |")
     print("|  4  ┆  5  ┆  6  |")
     print("|  7  ┆  8  ┆  9  |")
-    casillero = input("Ingresa el número de la casillero a la que quieres patear (1 al 9): ")
-    while not validarCasillero(casillero):
-        print("casillero inexistente. Intente nuevamente")
-        casillero =input("Ingresa el número de la casillero a la que quieres patear (1 al 9): ")
+    casilla = input("Ingresa el número de la casilla a la que quieres patear (1 al 9): ")
+    #while not validarCasilla(casilla):
+        #print("Casilla inexistente. Intente nuevamente")
+        #casilla =input("Ingresa el número de la casilla a la que quieres patear (1 al 9): ")
     
     configuracion = random.randint(1,3)
     if configuracion == 1:
@@ -56,10 +56,10 @@ def penal():
     else:
         config = arco3()
     print()
-    casillero = int(casillero)
-    fila = (casillero - 1) // 3
-    columna = (casillero - 1) % 3
-    if config[fila][columna] == 1:
+    casilla = int(casilla)
+    fil = (casilla - 1) // 3
+    col = (casilla - 1) % 3
+    if config[fil][col] == 1:
         gol()
         print()
         print("\x1b[1;32m"+"Gol! Obtienes 1 punto extra.")
@@ -79,10 +79,10 @@ def atajar():
     print("|  7  ┆  8  ┆  9  |")
     print()
     
-    casillero = (input("Ingresa el número de casillero en la cual deseas atajar: "))
-    while not validarCasillero(casillero):
-        print("casillero inexistente")
-        casillero =(input("Ingresa el número de la casillero en la cual deseas atajar: "))
+    casilla = int(input("Ingresa el número de la casilla a la que quieres patear: "))
+    #while not validarCasilla(casilla):
+        #print("Casilla inexistente")
+        #casilla = int(input("Ingresa el número de la casilla a la que quieres patear: "))
     
     configuracion = random.randint(1,3)
     if configuracion == 1:
@@ -92,10 +92,9 @@ def atajar():
     else:
         config = arco3()
     print()
-    casillero = int(casillero)
-    fila = (casillero - 1) // 3
-    columna = (casillero - 1) % 3
-    if config[fila][columna] == 1:
+    fil = (casilla - 1) // 3
+    col = (casilla - 1) % 3
+    if config[fil][col] == 1:
         print("\033[1;31m"+"Fallaste! Pierdes un punto")
     else:
         print("\x1b[1;32m"+"Atajaste!")
