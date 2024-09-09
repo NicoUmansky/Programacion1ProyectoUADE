@@ -80,9 +80,9 @@ def atajar():
     print()
     
     casilla = int(input("Ingresa el número de la casilla a la que quieres patear: "))
-    while not validarCasilla(casilla):
-        print("Casilla inexistente")
-        casilla = int(input("Ingresa el número de la casilla a la que quieres patear: "))
+    #while not validarCasilla(casilla):
+        #print("Casilla inexistente")
+        #casilla = int(input("Ingresa el número de la casilla a la que quieres patear: "))
     
     configuracion = random.randint(1,3)
     if configuracion == 1:
