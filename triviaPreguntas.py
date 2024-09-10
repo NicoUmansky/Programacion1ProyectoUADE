@@ -33,9 +33,10 @@ def jugarPreguntas(preguntas, opciones, respuestasCorrectas):
 
     preguntasHechas = []
     while len(preguntasHechas) < len(preguntas):
-        indiceElegido = random.randint(0, len(preguntas) - 1)
-        while indiceElegido in preguntasHechas:
-            indiceElegido = random.randint(0, len(preguntas) - 1)
+        # Crear una lista de índices no usados
+        indicesDisponibles = [i for i in range(len(preguntas)) if i not in preguntasHechas]
+        # Elegir un índice de las preguntas no usadas utilizando slicing
+        indiceElegido = random.choice(indicesDisponibles[:])
         preguntasHechas.append(indiceElegido)
         if vidas <= 0:
             return puntuacion
