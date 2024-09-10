@@ -57,7 +57,7 @@ def penal():
     print("|  7  ┆  8  ┆  9  |")
     casillero = input("Ingresa el número del casillero al que quieres patear (1 al 9): ")
     while not validarCasillero(casillero):
-        print("Casillero inexistente")
+        print(f"{red}Casillero inexistente {reset}")
         casillero = input("Ingresa el número del casillero al que quieres patear (1 al 9): ")
     
     configuracion = random.randint(1, 3)
@@ -95,7 +95,7 @@ def atajar():
     
     casillero = input("Ingresa el número del casillero al cual deseas atajar (1 al 9): ")
     while not validarCasillero(casillero):
-        print("Casillero inexistente")
+        print(f"{red}Casillero inexistente {reset}")
         casillero = input("Ingresa el número del casillero al cual deseas atajar (1 al 9): ")
     
     configuracion = random.randint(1, 3)
