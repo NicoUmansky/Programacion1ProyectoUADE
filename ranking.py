@@ -5,8 +5,6 @@ blue = '\x1b[34m'
 white = '\x1b[37m'
 reset = '\x1b[0m'
 
-
-
 def obtenerPuntos(puntuacion):
     return puntuacion[1]
 

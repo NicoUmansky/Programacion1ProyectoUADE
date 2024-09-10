@@ -121,7 +121,3 @@ def atajar():
         print()
     
     return atajar
-
-# penal()
-# input(f"{white}Presiona 1 para continuar: {reset}")
-# atajar()

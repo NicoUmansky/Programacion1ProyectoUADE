@@ -1,4 +1,4 @@
-from penales import penal, atajar
+from Penales import penal, atajar
 import random
 
 # Colores usando código ANSI
@@ -37,7 +37,7 @@ def jugarPreguntas(preguntas, opciones, respuestasCorrectas):
             print(f"{yellow}Opción inválida. Por favor, seleccione un número entre 1 y 4.{reset}")
             respuestaUsuario = input("Seleccione una opción (1-4): ")
         
-        if (respuestaUsuario -1 ) == respuestasCorrectas[indiceElegido]:
+        if (int(respuestaUsuario) -1 ) == respuestasCorrectas[indiceElegido]:
             print(f"{green}¡Respuesta correcta!{reset}")
             puntuacion += 2
             gol = penal()

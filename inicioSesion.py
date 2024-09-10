@@ -1,11 +1,4 @@
 def inicioSesion():
-    # usuarios = [
-    #     ["eugeniavarando@gmail.com", "1234", "Eugenia Varando"],
-    #     ["micaelacembal@gmail.com", "1605", "Micaela Cembal"],
-    #     ["nicolasgiordano@gmail.com", "7234", "Nicolas Giordano"],
-    #     ["valentinamannino@gmail.com", "3484", "Valentina Mannino"],
-    #     ["nicolasumansky@gmail.com", "9653", "Nicolas Umansky"]
-    # ]
 
     mails = ["eugeniavarando@gmail.com","micaelacembal@gmail.com", "nicolasgiordano@gmail.com", "valentinamannino@gmail.com", "nicolasumansky@gmail.com"]
     userName = ["Eugenia Varando", "Micaela Cembal", "Nicolas Giordano", "Valentina Mannino", "Nicolas Umansky"]
@@ -34,7 +27,6 @@ def inicioSesion():
             print("Contraseña incorrecta. Debe ser un número de 4 dígitos.")
             contraUsuario = input("Reingrese su contraseña (4 dígitos): ")
         
-        # while not any(usuario[0] == mailUsuario and usuario[1] == contraUsuario for usuario in usuarios):
         while not validarUsuarioExistente(mailUsuario, contraUsuario):
             print("Contraseña incorrecta.")
             contraUsuario = input("Reingrese su contraseña (4 dígitos): ")
@@ -54,7 +46,6 @@ def inicioSesion():
             print("Contraseña incorrecta. Debe ser un número de 4 dígitos.")
             contraUsuario = input("Reingrese su contraseña (4 dígitos): ")
         nombreUsuario = input("Ingrese su nombre: ")
-        # usuarios.append([mailUsuario, contraUsuario, nombreUsuario])
         mails.append(mailUsuario)
         userName.append(nombreUsuario)
         contraseñas.append(contraUsuario)
