@@ -2,7 +2,9 @@ puntuaciones = []
 
 yellow = '\x1b[33m'
 blue = '\x1b[34m'
-    
+white = '\x1b[37m'
+
+
 def obtenerPuntos(puntuacion):
     return puntuacion[1]
 
@@ -17,7 +19,8 @@ def mostrarRanking():
             puntos = puntuacionesOrdenadas[i][1]
             print(yellow + f"{i + 1}. {nombre} - {puntos} puntos")
     
-    input(yellow + "Presiona Enter para volver al menú principal.")
+    input(f"{white}Presiona cualquier botón para continuar: {reset}")
+
 
 
 def actualizarRanking(nombreUsuario, puntuacionFinal):

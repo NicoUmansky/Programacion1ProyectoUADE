@@ -15,17 +15,7 @@ def mostrarPregunta(pregunta, opciones):
     for i in range(len(opciones)):
         print(f"{white}{i+1}. {opciones[i]}{reset}")
 
-def obtenerRespuestaValida(opciones):
-    while True:
-        respuesta = input("Seleccione una opción (1-4): ")
-        if respuesta.isdigit():
-            respuesta = int(respuesta) - 1
-            if 0 <= respuesta < len(opciones):
-                return respuesta
-            else:
-                print(f"{yellow}Opción inválida. Por favor, seleccione un número entre 1 y 4.{reset}")
-        else:
-            print(f"{yellow}Entrada inválida. Por favor, ingrese un número entre 1 y 4.{reset}")
+validarRespuesta = lambda respuesta: respuesta.isdigit() and respuesta in ['1','2','3','4']    
 
 def jugarPreguntas(preguntas, opciones, respuestasCorrectas):
     vidas = 3
@@ -42,9 +32,12 @@ def jugarPreguntas(preguntas, opciones, respuestasCorrectas):
             return puntuacion
 
         mostrarPregunta(preguntas[indiceElegido], opciones[indiceElegido])
-        respuestaUsuario = obtenerRespuestaValida(opciones[indiceElegido])
+        respuestaUsuario = input("Seleccione una opción (1-4): ")
+        while not validarRespuesta(respuestaUsuario):
+            print(f"{yellow}Opción inválida. Por favor, seleccione un número entre 1 y 4.{reset}")
+            respuestaUsuario = input("Seleccione una opción (1-4): ")
         
-        if respuestaUsuario == respuestasCorrectas[indiceElegido]:
+        if (respuestaUsuario -1 ) == respuestasCorrectas[indiceElegido]:
             print(f"{green}¡Respuesta correcta!{reset}")
             puntuacion += 2
             gol = penal()
