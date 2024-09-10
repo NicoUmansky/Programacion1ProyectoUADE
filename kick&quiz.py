@@ -9,6 +9,8 @@ white = '\x1b[37m'
 green = '\x1b[32m'
 red = '\x1b[31m'
 blue = '\x1b[34m'
+reset = '\x1b[0m'
+
 
 def mostrarMenu():
     print(cyan + "Menú Principal:")
@@ -46,7 +48,7 @@ def main():
                     cambiarUsuario = False 
 
             print(blue + "¡Empecemos a jugar!")
-
+            print(red + "Tenes 3 vidas disponibles. ¡Aprovechalas! ❤️  ❤️  ❤️" + reset)
             preguntas = [
                 "¿Cuál es la montaña más alta de Argentina?",
                 "¿En qué año se celebró el primer Mundial de Fútbol en el que participó Argentina?",
