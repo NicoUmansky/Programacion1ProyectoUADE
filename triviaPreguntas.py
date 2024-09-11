@@ -20,19 +20,20 @@ validarRespuesta = lambda respuesta: respuesta.isdigit() and respuesta in ['1','
 def jugarPreguntas(preguntas, opciones, respuestasCorrectas):
     vidas = 3
     puntuacion = 0
-
     preguntasHechas = []
+    
     while len(preguntasHechas) < len(preguntas):
         # Crear una lista de índices no usados
         indicesDisponibles = [i for i in range(len(preguntas)) if i not in preguntasHechas]
         # Elegir un índice de las preguntas no usadas utilizando slicing
         indiceElegido = random.choice(indicesDisponibles[:])
         preguntasHechas.append(indiceElegido)
+        
         if vidas <= 0:
             return puntuacion
-
         mostrarPregunta(preguntas[indiceElegido], opciones[indiceElegido])
         respuestaUsuario = input("Seleccione una opción (1-4): ")
+        
         while not validarRespuesta(respuestaUsuario):
             print(f"{yellow}Opción inválida. Por favor, seleccione un número entre 1 y 4.{reset}")
             respuestaUsuario = input("Seleccione una opción (1-4): ")

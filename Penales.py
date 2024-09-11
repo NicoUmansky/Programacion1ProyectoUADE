@@ -50,15 +50,15 @@ validarCasillero = lambda casillero: casillero.isdigit() and 1 <= int(casillero)
 
 def penal():
     gol = False
-    print("Es momento de patear un penal para tener la posibilidad de sumar puntos extra, elige a donde quieres patear:")
+    print("Es momento de patear un penal para tener la posibilidad de sumar puntos extra, elegí a donde querés patear:")
     print("┎⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯┒")
     print("|  1  ┆  2  ┆  3  |")
     print("|  4  ┆  5  ┆  6  |")
     print("|  7  ┆  8  ┆  9  |")
-    casillero = input("Ingresa el número del casillero al que quieres patear (1 al 9): ")
+    casillero = input("Ingresa el número del casillero al que querés patear (1 al 9): ")
     while not validarCasillero(casillero):
         print("Casillero inexistente")
-        casillero = input("Ingresa el número del casillero al que quieres patear (1 al 9): ")
+        casillero = input("Ingresa el número del casillero al que querés patear (1 al 9): ")
     
     configuracion = random.randint(1, 3)
     if configuracion == 1:
@@ -76,17 +76,17 @@ def penal():
     if arcoElegido[fila][columna] == 1:
         cartelGol()
         print()
-        print(f"{green}Gol! Obtienes 1 punto extra.{reset}")
+        print(f"{green} ¡Gol! Obtenés 1 punto extra.{reset}")
         gol = True
     else:   
-        print(f"{red}Fallaste!, no obtienes puntos extra{reset}")
+        print(f"{red} ¡Fallaste!, no obtenés puntos extra{reset}")
     
     return gol  
 
 # Luego de patear un penal, tendrás la posibilidad de atajar uno
 def atajar():
     atajar = False
-    print("Es momento de atajar un penal para tener la posibilidad de sumar puntos extra, elige a donde quieres atajar:")
+    print("Es momento de atajar un penal para tener la posibilidad de sumar puntos extra, elegí a donde queres atajar:")
     print("┎⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯┒")
     print("|  1  ┆  2  ┆  3  |")
     print("|  4  ┆  5  ┆  6  |")
@@ -112,9 +112,9 @@ def atajar():
     columna = (casillero - 1) % 3
     
     if arcoElegido[fila][columna] == 1:
-        print(f"{red}Fallaste! Pierdes un punto{reset}")
+        print(f"{red}¡Fallaste! Perdés un punto{reset}")
     else:
-        print(f"{green}Atajaste!{reset}")
+        print(f"{green}¡Atajaste!{reset}")
         print()
         print(f"{green}Ganaste 1 punto extra.{reset}")
         atajar = True

@@ -15,7 +15,6 @@ def inicioSesion():
         print("Opción incorrecta.")
         decision = input("Presione 1 para Iniciar Sesión o 2 para Registrarse en su cuenta: ")
    
-    
     # Inicia Sesión
     if decision == '1':    
         mailUsuario = input("Ingrese su mail: ")

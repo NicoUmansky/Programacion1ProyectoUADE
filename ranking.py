@@ -13,19 +13,23 @@ def mostrarRanking():
         print("No hay puntuaciones para mostrar.")
     else:
         puntuacionesOrdenadas = sorted(puntuaciones, key=obtenerPuntos, reverse=True)
-        print(blue + "Ranking:")
+        print(f"{blue}Ranking:{reset}")
         for i in range(len(puntuacionesOrdenadas)):
             nombre = puntuacionesOrdenadas[i][0]
             puntos = puntuacionesOrdenadas[i][1]
-            print(yellow + f"{i + 1}. {nombre} - {puntos} puntos")
+            print(f"{yellow}{i + 1}) {nombre} - {puntos} puntos{reset}")
     
-    input(f"{white}Presiona cualquier botón para continuar: {reset}")
-
+    input(f"{white}Presiona cualquier botón para volver al menú principal.{reset}")
 
 
 def actualizarRanking(nombreUsuario, puntuacionFinal):
-    for puntuacion in puntuaciones:
-        if puntuacion[0] == nombreUsuario:
-            print("Ya estás en el ranking. No podes volver a jugar.")
-            return
-    puntuaciones.append([nombreUsuario, puntuacionFinal])
+    usuarioEnRanking = False
+    i = 0
+    while i < len(puntuaciones):
+        if puntuaciones[i][0] == nombreUsuario:
+            usuarioEnRanking = True
+        i += 1
+    if usuarioEnRanking:
+        print("Ya estás en el ranking. No podés volver a jugar.")
+    else:
+        puntuaciones.append([nombreUsuario, puntuacionFinal])

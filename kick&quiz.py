@@ -11,11 +11,10 @@ red = '\x1b[31m'
 blue = '\x1b[34m'
 reset = '\x1b[0m'
 
-
 def mostrarMenu():
     print(cyan + "Menú Principal:")
     print(yellow + "1. Jugar")
-    print(yellow + "2. Ver ranking")
+    print(yellow + "2. Ver Ranking")
     print(yellow + "3. Salir")
     opcion = input(white + "Seleccione una opción (1, 2 o 3): ")
     return opcion
@@ -25,23 +24,21 @@ def main():
     
     while continuar:
         opcion = mostrarMenu()
-
+        
         if opcion == '1':
             print(red + "¡Bienvenido a Kick & Quiz!")
-            print(yellow + "Por favor, ingrese a su cuenta o creala para empezar a jugar")
-
+            print(yellow + "Por favor, ingrese a su cuenta o registrese para empezar a jugar")
+            
             cambiarUsuario = True
             while cambiarUsuario:
                 nombreUsuario = inicioSesion()
                 usuarioEnRanking = False
-
                 i = 0
                 while i < len(puntuaciones):
                     if puntuaciones[i][0] == nombreUsuario:
                         usuarioEnRanking = True
                         i = len(puntuaciones)
                     i += 1
-
                 if usuarioEnRanking:
                     print(red + "Ya jugaste y estás en el ranking. Por favor, inicia sesión con otro usuario.")
                 else:
@@ -49,6 +46,7 @@ def main():
 
             print(blue + "¡Empecemos a jugar!")
             print(red + "Tenes 3 vidas disponibles. ¡Aprovechalas! ❤️  ❤️  ❤️" + reset)
+            
             preguntas = [
                 "¿Cuál es la montaña más alta de Argentina?",
                 "¿En qué año se celebró el primer Mundial de Fútbol en el que participó Argentina?",
@@ -108,20 +106,20 @@ def main():
 
             actualizarRanking(nombreUsuario, puntuacionFinal)
 
-            cambiarUsuario = input(white + "¿Deseas cambiar de usuario para volver a intentar? (SI/NO): ").upper()
+            cambiarUsuario = input(white + "¿Querés cambiar de usuario para intentar de nuevo? Ingresá SI para cambiar, o presioná cualquier tecla para salir: ").upper()
             if cambiarUsuario != 'SI':
-                print(red + "¡Gracias por jugar! Te esperamos nuevamente.")
+                print(red + "¡Muchas gracias por jugar! Te esperamos nuevamente.")
                 continuar = False
     
         elif opcion == '2':
             mostrarRanking()
     
         elif opcion == '3':
-            print(red + "¡Gracias por jugar! Te esperamos nuevamente.")
+            print(red + "¡Muchas gracias por jugar! Te esperamos nuevamente.")
             continuar = False
         
         else:
-            print(red + "Opción inválida. Por favor, seleccione 1, 2 o 3.")
+            print(red + "Opción inválida. Por favor, selecciona 1, 2 o 3.")
 
 if __name__ == "__main__":
     main()
