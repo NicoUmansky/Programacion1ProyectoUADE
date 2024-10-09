@@ -8,6 +8,7 @@ green = '\x1b[32m'
 red = '\x1b[31m'
 blue = '\x1b[34m'
 reset = '\x1b[0m'
+equipos_argentinos = ["Argentinos Juniors", "Atlético Tucumán", "Banfield", "Barracas Central", "Belgrano", "Boca Juniors", "Deportivo Riestra", "Defensa y Justicia", "Estudiantes", "Gimnasia", "Godoy Cruz", "Huracán", "Independiente", "Independiente de Rivadavia", "Instituto", "Lanús", "Newell's Old Boys", "Platense", "Racing", "River Plate", "Rosario Central", "Sarmiento", "San Lorenzo", "Talleres", "Tigre", "Unión", "Vélez", "Central Córdoba"]
 
 def arco1():
     print("...")
@@ -49,6 +50,7 @@ def cartelGol():
 validarCasillero = lambda casillero: casillero.isdigit() and 1 <= int(casillero) <= 9
 
 def penal():
+    rival = random.randint()
     gol = False
     print("Es momento de patear un penal para tener la posibilidad de sumar puntos extra, elegí a donde querés patear:")
     print("┎⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯┒")

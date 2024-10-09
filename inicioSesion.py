@@ -45,10 +45,12 @@ def inicioSesion():
             print("Contraseña incorrecta. Debe ser un número de 4 dígitos.")
             contraUsuario = input("Reingrese su contraseña (4 dígitos): ")
         nombreUsuario = input("Ingrese su nombre: ")
+        equipo = input("Ingrese con que equipo va a jugar: ")
         mails.append(mailUsuario)
         userName.append(nombreUsuario)
         contraseñas.append(contraUsuario)
         
-        print(f"¡Hola {nombreUsuario}!")
+        
+        print(f"¡Hola {nombreUsuario}, a llevar a {equipo} a la gloria!")
         return nombreUsuario
 

@@ -99,7 +99,7 @@ def main():
                 ["Luis Alberto Spinetta", "Fito Páez", "Charly García", "Gustavo Cerati"]
             ]
             
-            respuestasCorrectas = [0, 1, 1, 3, 0, 0, 1, 1, 2, 0, 3, 2, 0, 1, 1, 1, 3, 0, 3, 2,1,0,3]
+            respuestasCorrectas = [0, 1, 1, 3, 0, 0, 1, 1, 2, 0, 3, 2, 0, 1, 1, 1, 3, 0, 3, 2, 1, 0, 3]
 
             puntuacionFinal = jugarPreguntas(preguntas, opciones, respuestasCorrectas)
             print(green + f"Juego terminado. Tu puntuación final es {puntuacionFinal}.")
