@@ -1,5 +1,5 @@
 import random
-
+from inicioSesion import inicioSesion
 # Colores usando código ANSI
 cyan = '\x1b[36m'
 yellow = '\x1b[33m'
@@ -49,9 +49,10 @@ def cartelGol():
     
 validarCasillero = lambda casillero: casillero.isdigit() and 1 <= int(casillero) <= 9
 
-def penal():
-    rival = random.randint()
+def penal(equipo):
+    rival = random.choice(equipos_argentinos)
     gol = False
+    print(f"Comienza el partido, {equipo} vs {rival}")
     print("Es momento de patear un penal para tener la posibilidad de sumar puntos extra, elegí a donde querés patear:")
     print("┎⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯┒")
     print("|  1  ┆  2  ┆  3  |")
@@ -78,15 +79,15 @@ def penal():
     if arcoElegido[fila][columna] == 1:
         cartelGol()
         print()
-        print(f"{green} ¡Gol! Obtenés 1 punto extra.{reset}")
+        print(f"{green} ¡Gol! {equipo.capitalize()} a ganado! Obtenés 1 punto extra.{reset}")
         gol = True
     else:   
-        print(f"{red} ¡Fallaste!, no obtenés puntos extra{reset}")
+        print(f"{red} ¡Fallaste!, gano {rival} no obtenés puntos extra{reset}")
     
     return gol  
 
 # Luego de patear un penal, tendrás la posibilidad de atajar uno
-def atajar():
+def atajar(equipo):
     atajar = False
     print("Es momento de atajar un penal para tener la posibilidad de sumar puntos extra, elegí a donde queres atajar:")
     print("┎⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯┒")

@@ -17,7 +17,7 @@ def mostrarPregunta(pregunta, opciones):
 
 validarRespuesta = lambda respuesta: respuesta.isdigit() and respuesta in ['1','2','3','4']    
 
-def jugarPreguntas(preguntas, opciones, respuestasCorrectas):
+def jugarPreguntas(preguntas, opciones, respuestasCorrectas,equipo):
     vidas = 3
     puntuacion = 0
     preguntasHechas = []
@@ -41,11 +41,11 @@ def jugarPreguntas(preguntas, opciones, respuestasCorrectas):
         if (int(respuestaUsuario) -1 ) == respuestasCorrectas[indiceElegido]:
             print(f"{green}¡Respuesta correcta!{reset}")
             puntuacion += 2
-            gol = penal()
+            gol = penal(equipo)
             if gol:
                 puntuacion += 1
             input(f"{white}Presiona cualquier botón para continuar: {reset}")
-            atajado = atajar()
+            atajado = atajar(equipo)
             if atajado:
                 puntuacion += 1
             else:

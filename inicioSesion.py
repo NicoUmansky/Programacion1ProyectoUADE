@@ -52,5 +52,5 @@ def inicioSesion():
         
         
         print(f"¡Hola {nombreUsuario}, a llevar a {equipo} a la gloria!")
-        return nombreUsuario
+        return nombreUsuario, equipo
 

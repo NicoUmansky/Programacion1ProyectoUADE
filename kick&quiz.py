@@ -31,7 +31,7 @@ def main():
             
             cambiarUsuario = True
             while cambiarUsuario:
-                nombreUsuario = inicioSesion()
+                nombreUsuario, equipo = inicioSesion()
                 usuarioEnRanking = False
                 i = 0
                 while i < len(puntuaciones):
@@ -101,7 +101,7 @@ def main():
             
             respuestasCorrectas = [0, 1, 1, 3, 0, 0, 1, 1, 2, 0, 3, 2, 0, 1, 1, 1, 3, 0, 3, 2, 1, 0, 3]
 
-            puntuacionFinal = jugarPreguntas(preguntas, opciones, respuestasCorrectas)
+            puntuacionFinal = jugarPreguntas(preguntas, opciones, respuestasCorrectas,equipo)
             print(green + f"Juego terminado. Tu puntuación final es {puntuacionFinal}.")
 
             actualizarRanking(nombreUsuario, puntuacionFinal)
