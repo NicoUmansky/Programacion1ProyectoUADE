@@ -53,14 +53,12 @@ def inicioSesion():
             print("\nEquipos:")
             mostrar_equipos(pagina_actual)
             
-            opcion = input("\nElige un equipo (1-7), 'n' para siguiente página, 'p' para anterior, 'q' para salir: ").lower()
+            opcion = input("\nElige un equipo (1-7), 'n' para siguiente página, 'p' para anterior").lower()
             
             if opcion == 'n' and (pagina_actual + 1) * equipos_por_pagina < len(equipos):
                 pagina_actual += 1
             elif opcion == 'p' and pagina_actual > 0:
                 pagina_actual -= 1
-            elif opcion == 'q':
-                break
             else:
                 try:
                     eleccion = int(opcion) - 1
