@@ -1,8 +1,8 @@
-rutaArchivo = '/Users/micaelacembal/Desktop/UADE/Programación I/Programacion1ProyectoUADE/Files/preguntas.txt'
+rutaArchivo = "C:\\Users\\manni\\OneDrive\\Escritorio\\VALENTINA\\VALEN-2024 UADE\\2DO CUATRIMESTRE\\PROGRAMACION I\\Programacion1ProyectoUADE\\Files\\preguntas.txt"
 preguntas = {}
 
 try:
-    with open(rutaArchivo, 'r') as file:
+    with open(rutaArchivo, 'r', encoding = 'utf-8') as file:
         lines = file.readlines()
         
         for line in lines:
