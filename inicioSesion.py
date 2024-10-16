@@ -38,14 +38,7 @@ def inicioSesion():
             print("Contraseña incorrecta. Debe ser un número de 4 dígitos.")
             contraUsuario = input("Reingrese su contraseña (4 dígitos): ")
         nombreUsuario = input("Ingrese su nombre: ")
-        equipos = [
-    "Boca Juniors", "River Plate", "Racing Club", "Independiente", "San Lorenzo",
-    "Vélez Sarsfield", "Huracán", "Estudiantes", "Gimnasia", "Argentinos Juniors",
-    "Talleres", "Belgrano", "Rosario Central", "Newell's", "Lanús", 
-    "Banfield", "Arsenal", "Godoy Cruz", "Colón", "Unión",
-    "Atlético Tucumán", "Sarmiento", "Platense", "Barracas Central", "Defensa y Justicia",
-    "Tigre", "Central Córdoba", "Instituto"
-]
+        equipos = ["Argentinos Juniors", "Atlético Tucumán", "Banfield", "Barracas Central", "Belgrano", "Boca Juniors", "Deportivo Riestra", "Defensa y Justicia", "Estudiantes", "Gimnasia", "Godoy Cruz", "Huracán", "Independiente", "Independiente de Rivadavia", "Instituto", "Lanús", "Newell's Old Boys", "Platense", "Racing", "River Plate", "Rosario Central", "Sarmiento", "San Lorenzo", "Talleres", "Tigre", "Unión", "Vélez", "Central Córdoba"]
 
         equipos_por_pagina = 7
         pagina_actual = 0
@@ -72,13 +65,12 @@ def inicioSesion():
                 try:
                     eleccion = int(opcion) - 1
                     if 0 <= eleccion < equipos_por_pagina:
-                        equipo_seleccionado = equipos[pagina_actual * equipos_por_pagina + eleccion]
-                        print(f"\nHas elegido: {equipo_seleccionado}")
+                        equipo = equipos[pagina_actual * equipos_por_pagina + eleccion]
+                        print(f"\nHas elegido: {equipo}")
                         break
                 except ValueError:
                     print("Opción no válida, intenta de nuevo.")
 
-        equipo = input("Ingrese con que equipo va a jugar: ")
         sexo = input("Ingrese su sexo. M para Masculino, F para Femenino o X para otros: ")
         while not validarSexo(sexo):
             sexo = input("Sexo incorrecto, ingrese su sexo nuevamente. M para Masculino, F para Femenino o X para otros: ")
