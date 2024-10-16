@@ -2,7 +2,7 @@ rutaArchivo = "C:\\Users\\manni\\OneDrive\\Escritorio\\VALENTINA\\VALEN-2024 UAD
 preguntas = {}
 
 try:
-    with open(rutaArchivo, 'r', encoding = 'utf-8') as file:
+    with open(rutaArchivo, 'r', encoding = 'utf-8') as file: #Utilizamos el encoding para que pueda leer los caracteres especiales 
         lines = file.readlines()
         
         for line in lines:
