@@ -1,4 +1,4 @@
-rutaArchivo = "C:\\Users\\manni\\OneDrive\\Escritorio\\VALENTINA\\VALEN-2024 UADE\\2DO CUATRIMESTRE\\PROGRAMACION I\\Programacion1ProyectoUADE\\Files\\preguntas.txt"
+rutaArchivo = "/Users/micaelacembal/Desktop/UADE/Programación I/Programacion1ProyectoUADE/Files/preguntas.txt"
 preguntas = {}
 
 try:
