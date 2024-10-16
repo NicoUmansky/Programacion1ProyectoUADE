@@ -50,7 +50,7 @@ def inicioSesion():
 
 def registroCSV (mail, user, contra, team, sex):
     try:
-        arch = open(r"c:\Users\Pc\Documents\UADE - 1ER AÑO - 1ER CUATRIMESTRE\GitHub\Programacion1ProyectoUADE\Files\usuarios.csv", "at")
+        arch = open(r"Programacion1ProyectoUADE\Files\usuarios.csv", "at")
     except IOError:
         print("Error al abrir el archivo")
     else:
@@ -59,7 +59,7 @@ def registroCSV (mail, user, contra, team, sex):
     
 def validarMailExistente(mail):
     try:
-        arch = open(r"c:\Users\Pc\Documents\UADE - 1ER AÑO - 1ER CUATRIMESTRE\GitHub\Programacion1ProyectoUADE\Files\usuarios.csv", "rt")
+        arch = open(r"Programacion1ProyectoUADE\Files\usuarios.csv", "rt")
     except IOError:
         print("Error al abrir el archivo")
     else:
@@ -72,7 +72,7 @@ def validarMailExistente(mail):
 
 def validarInicioSesion(mail, contra):
     try:
-        arch = open(r"c:\Users\Pc\Documents\UADE - 1ER AÑO - 1ER CUATRIMESTRE\GitHub\Programacion1ProyectoUADE\Files\usuarios.csv", "rt")
+        arch =  open(r"Programacion1ProyectoUADE\Files\usuarios.csv", "rt")
     except IOError:
         print("Error al abrir el archivo")
     else:
@@ -85,7 +85,7 @@ def validarInicioSesion(mail, contra):
     
 def obtenerDatosUsuario(mail):
     try:
-        arch = open(r"c:\Users\Pc\Documents\UADE - 1ER AÑO - 1ER CUATRIMESTRE\GitHub\Programacion1ProyectoUADE\Files\usuarios.csv", "rt")
+        arch = open(r"Programacion1ProyectoUADE\Files\usuarios.csv", "rt")
     except IOError:
         print("Error al abrir el archivo")
     else:
