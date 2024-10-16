@@ -114,10 +114,10 @@ def main():
         elif opcion == '2':
             mostrarRanking()
     
-        elif opcion == '3':
+        elif opcion == '3': 
             print(red + "¡Muchas gracias por jugar! Te esperamos nuevamente.")
             continuar = False
-        
+    
         else:
             print(red + "Opción inválida. Por favor, selecciona 1, 2 o 3.")
 
