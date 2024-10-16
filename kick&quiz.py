@@ -1,6 +1,6 @@
-from inicioSesion import inicioSesion
 from triviaPreguntas import jugarPreguntas
 from ranking import mostrarRanking, actualizarRanking, puntuaciones
+from inicioSesion import inicioSesion
 
 # Colores usando código ANSI
 cyan = '\x1b[36m'

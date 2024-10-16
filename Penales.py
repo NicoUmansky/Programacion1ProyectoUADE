@@ -82,7 +82,7 @@ def penal(equipo):
         print(f"{green} ¡Gol! {equipo.capitalize()} a ganado! Obtenés 1 punto extra.{reset}")
         gol = True
     else:   
-        print(f"{red} ¡Fallaste!, gano {rival} no obtenés puntos extra{reset}")
+        print(f"{red}¡Fallaste!, gano {rival}, no obtenés puntos extra{reset}")
     
     return gol  
 

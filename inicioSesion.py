@@ -1,14 +1,6 @@
 def inicioSesion():
-
-    #mails = ["eugeniavarando@gmail.com","micaelacembal@gmail.com", "nicolasgiordano@gmail.com", "valentinamannino@gmail.com", "nicolasumansky@gmail.com"]
-    #userName = ["Eugenia Varando", "Micaela Cembal", "Nicolas Giordano", "Valentina Mannino", "Nicolas Umansky"]
-    #contraseñas= ["1234","1605","7234","3484","9653"]
-    
     validarInicio = lambda eleccion:  eleccion.isdigit() and decision in ['1', '2']
-    validarMail = lambda mail: any(usuario == mail for usuario in mails)
     validarContra = lambda contra: contra.isdigit() and len(contra) == 4    
-    obtenerNombreUsuario = lambda mail: [userName[i] for i in range(len(userName)) if mails[i] == mail][0] # Lista por comprensión con el nombre del usuario ingresado. 
-    #validarUsuarioExistente = lambda mail, contra: any(mails[i] == mail and contraseñas[i] == contra for i in range(len(contraseñas)))
     validarSexo = lambda sex: sex.upper() == "M" or sex.upper() == "F" or sex.upper() == "X"
 
     decision = input("Presione 1 para Iniciar Sesión o 2 para Registrarse en su cuenta: ")
@@ -19,27 +11,26 @@ def inicioSesion():
     # Inicia Sesión
     if decision == '1':    
         mailUsuario = input("Ingrese su mail: ")
-        while not validarMail(mailUsuario):
-            print("Mail incorrecto.")
-            mailUsuario = input("Reingrese su mail: ")
+        while not validarMailExistente(mailUsuario):
+            print("Mail no registrado.")
+            mailUsuario = input("Ingrese un mail registrado: ")
         contraUsuario = input("Ingrese su contraseña (4 dígitos): ")
         while not validarContra(contraUsuario):
             print("Contraseña incorrecta. Debe ser un número de 4 dígitos.")
             contraUsuario = input("Reingrese su contraseña (4 dígitos): ")
+        while not validarInicioSesion(mailUsuario, contraUsuario):
+            print("Contraseña incorrecta.")
+            contraUsuario = input("Reingrese su contraseña (4 dígitos): ")
         
-        #while not validarUsuarioExistente(mailUsuario, contraUsuario):
-            #print("Contraseña incorrecta.")
-            #contraUsuario = input("Reingrese su contraseña (4 dígitos): ")
 
-        nombreUsuario = obtenerNombreUsuario(mailUsuario)
+        nombreUsuario,equipo = obtenerDatosUsuario(mailUsuario)
         print(f"¡Hola {nombreUsuario}!")
-        return nombreUsuario 
-    
+        return nombreUsuario, equipo    
     # Registro de usuario
 
     else: 
         mailUsuario = input("Ingrese su mail: ")
-        while validarMail(mailUsuario):
+        while validarMailExistente(mailUsuario):
             print("Mail ya registrado!")
             mailUsuario = input("Reingrese su mail: ")
         contraUsuario = input("Ingrese su contraseña (4 dígitos): ")
@@ -48,13 +39,11 @@ def inicioSesion():
             contraUsuario = input("Reingrese su contraseña (4 dígitos): ")
         nombreUsuario = input("Ingrese su nombre: ")
         equipo = input("Ingrese con que equipo va a jugar: ")
+        sexo = input("Ingrese su sexo. M para Masculino, F para Femenino o X para otros: ")
         while not validarSexo(sexo):
             sexo = input("Sexo incorrecto, ingrese su sexo nuevamente. M para Masculino, F para Femenino o X para otros: ")
-
-        # mails.append(mailUsuario)
-        # userName.append(nombreUsuario)
-        # contraseñas.append(contraUsuario)
-        registroCSV(mailUsuario, nombreUsuario, contraUsuario,equipo,"F" )
+        
+        registroCSV(mailUsuario, nombreUsuario, contraUsuario, equipo, sexo)
         
         print(f"¡Hola {nombreUsuario}, a llevar a {equipo} a la gloria!")
         return nombreUsuario, equipo
@@ -68,3 +57,40 @@ def registroCSV (mail, user, contra, team, sex):
         arch.write(f"{mail};{user};{contra};{team};{sex}\n")
         arch.close()
     
+def validarMailExistente(mail):
+    try:
+        arch = open(r"c:\Users\Pc\Documents\UADE - 1ER AÑO - 1ER CUATRIMESTRE\GitHub\Programacion1ProyectoUADE\Files\usuarios.csv", "rt")
+    except IOError:
+        print("Error al abrir el archivo")
+    else:
+        for linea in arch:
+            mailArchivo, x1, x2, x3, x4 = linea.strip().split(";")
+            if mail == mailArchivo:
+                return True
+        arch.close()
+        return False
+
+def validarInicioSesion(mail, contra):
+    try:
+        arch = open(r"c:\Users\Pc\Documents\UADE - 1ER AÑO - 1ER CUATRIMESTRE\GitHub\Programacion1ProyectoUADE\Files\usuarios.csv", "rt")
+    except IOError:
+        print("Error al abrir el archivo")
+    else:
+        for linea in arch:
+            mailArchivo, x1, contraArchivo, x2, x3 = linea.strip().split(";")
+            if mail == mailArchivo and contra == contraArchivo:
+                return True
+        arch.close()
+        return False
+    
+def obtenerDatosUsuario(mail):
+    try:
+        arch = open(r"c:\Users\Pc\Documents\UADE - 1ER AÑO - 1ER CUATRIMESTRE\GitHub\Programacion1ProyectoUADE\Files\usuarios.csv", "rt")
+    except IOError:
+        print("Error al abrir el archivo")
+    else:
+        for linea in arch:
+            mailArchivo, userArchivo, x1, equipo, x3 = linea.strip().split(";")
+            if mail == mailArchivo:
+                return userArchivo,equipo
+        arch.close()
