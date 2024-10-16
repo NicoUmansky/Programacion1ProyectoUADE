@@ -49,8 +49,7 @@ def inicioSesion():
         nombreUsuario = input("Ingrese su nombre: ")
         equipo = input("Ingrese con que equipo va a jugar: ")
         while not validarSexo(sexo):
-
-        sexo = input("Ingrese su sexo. M para Masculino, F para Femenino o X para otros: ")
+            sexo = input("Sexo incorrecto, ingrese su sexo nuevamente. M para Masculino, F para Femenino o X para otros: ")
 
         # mails.append(mailUsuario)
         # userName.append(nombreUsuario)
