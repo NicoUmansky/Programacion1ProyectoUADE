@@ -22,23 +22,33 @@ def mostrarMenu():
 
 def cargarPreguntas(rutaArchivo):
     preguntas = {}
+    opciones = []
+    respuestasCorrectas = []
     try:
-        with open(rutaArchivo, 'r', encoding='utf-8') as file:
-            lines = file.readlines()
-            for line in lines:
-                partes = line.strip().split(';')
-                numeroPregunta = int(partes[0].strip())
-                pregunta = partes[1].strip()
-                opciones = [option.strip() for option in partes[2].split(',')]
-                respuestaCorrecta = int(partes[3].strip())
-                preguntas[numeroPregunta] = {
-                    "pregunta": pregunta,
-                    "opciones": opciones,
-                    "respuestaCorrecta": respuestaCorrecta
-                }
+        file = open(rutaArchivo, 'r', encoding='utf-8')
+        lines = file.readlines()
+        file.close()
+
+        for line in lines:
+            partes = line.strip().split(';')
+            numeroPregunta = int(partes[0].strip())
+            pregunta = partes[1].strip()
+            opcion = [option.strip() for option in partes[2].split(',')]
+            respuestaCorrecta = int(partes[3].strip())
+            
+            preguntas[numeroPregunta] = {
+                "pregunta": pregunta,
+                "opciones": opcion,
+                "respuestaCorrecta": respuestaCorrecta
+            }
+            
+            opciones.append(opcion)
+            respuestasCorrectas.append(respuestaCorrecta)
+
     except FileNotFoundError:
         print("Error: No se pudo encontrar el archivo de preguntas.")
-    return preguntas
+    
+    return preguntas, opciones, respuestasCorrectas
 
 def main():
     rutaArchivo = "Programacion1ProyectoUADE/Files/preguntas.txt" 
@@ -65,16 +75,9 @@ def main():
             print(blue + "¡Empecemos a jugar!")
             print(red + "Tienes 3 vidas disponibles. ¡Aprovechalas! ❤️  ❤️  ❤️" + reset)
             
-            preguntas = cargarPreguntas(rutaArchivo)
-            print(preguntas[1])
-            print("---------------------")
-            print(preguntas[1]["pregunta"])
-            print("---------------------")
-            print(preguntas[1]["opciones"])
-            print("---------------------")
-            print(preguntas[1]["respuestaCorrecta"])
+            preguntas, opciones, respuestasCorrectas = cargarPreguntas(rutaArchivo)
 
-            puntuacionFinal = jugarPreguntas(preguntas, equipo)
+            puntuacionFinal = jugarPreguntas(preguntas, opciones, respuestasCorrectas, equipo)
             print(green + f"Juego terminado. Tu puntuación final es {puntuacionFinal}.")
 
             actualizarRanking(nombreUsuario, puntuacionFinal)
@@ -83,16 +86,6 @@ def main():
             if cambiarUsuario != 'SI':
                 print(red + "¡Muchas gracias por jugar! Te esperamos nuevamente.")
                 continuar = False
-    
-        elif opcion == '2':
-            mostrarRanking()
-    
-        elif opcion == '3': 
-            print(red + "¡Muchas gracias por jugar! Te esperamos nuevamente.")
-            continuar = False
-    
-        else:
-            print(red + "Opción inválida. Por favor, selecciona 1, 2 o 3.")
 
 if __name__ == "__main__":
     main()

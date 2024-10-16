@@ -11,34 +11,33 @@ blue = '\x1b[34m'
 reset = '\x1b[0m'
 
 def mostrarPregunta(pregunta, opciones):
-    print(pregunta)
-    for i in range(len(opciones)):
-        print(f"{white}{i+1}. {opciones[i]}{reset}")
+    print(f"{green}{pregunta}{reset}")
+    for i, opcion in enumerate(opciones, start=1):
+        print(f"{white}{i}. {opcion}{reset}")
 
-validarRespuesta = lambda respuesta: respuesta.isdigit() and respuesta in ['1','2','3','4']    
+validarRespuesta = lambda respuesta: respuesta.isdigit() and respuesta in ['1', '2', '3', '4']
 
-def jugarPreguntas(preguntas, opciones, respuestasCorrectas,equipo):
+def jugarPreguntas(preguntas, opciones, respuestasCorrectas, equipo):
     vidas = 3
     puntuacion = 0
     preguntasHechas = []
     
     while len(preguntasHechas) < len(preguntas):
-        # Crear una lista de índices no usados
         indicesDisponibles = [i for i in range(len(preguntas)) if i not in preguntasHechas]
-        # Elegir un índice de las preguntas no usadas utilizando slicing
-        indiceElegido = random.choice(indicesDisponibles[:])
+        indiceElegido = random.choice(indicesDisponibles)
         preguntasHechas.append(indiceElegido)
         
         if vidas <= 0:
             return puntuacion
-        mostrarPregunta(preguntas[indiceElegido], opciones[indiceElegido])
+        
+        mostrarPregunta(preguntas[indiceElegido]["pregunta"], preguntas[indiceElegido]["opciones"])
         respuestaUsuario = input("Seleccione una opción (1-4): ")
         
         while not validarRespuesta(respuestaUsuario):
             print(f"{yellow}Opción inválida. Por favor, seleccione un número entre 1 y 4.{reset}")
             respuestaUsuario = input("Seleccione una opción (1-4): ")
         
-        if (int(respuestaUsuario) -1 ) == respuestasCorrectas[indiceElegido]:
+        if (int(respuestaUsuario) - 1) == preguntas[indiceElegido]["respuestaCorrecta"]:
             print(f"{green}¡Respuesta correcta!{reset}")
             puntuacion += 2
             gol = penal(equipo)
@@ -59,4 +58,3 @@ def jugarPreguntas(preguntas, opciones, respuestasCorrectas,equipo):
             print(f"{red}Te quedan {vidas} vidas.{reset}")
 
     return puntuacion
-    
