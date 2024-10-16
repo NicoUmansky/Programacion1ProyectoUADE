@@ -31,7 +31,6 @@ def main():
             
             cambiarUsuario = True
             while cambiarUsuario:
-                nombreUsuario, equipo = inicioSesion()
                 usuarioEnRanking = False
                 i = 0
                 while i < len(puntuaciones):
