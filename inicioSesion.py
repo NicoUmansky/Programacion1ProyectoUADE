@@ -38,7 +38,37 @@ def inicioSesion():
             print("Contraseña incorrecta. Debe ser un número de 4 dígitos.")
             contraUsuario = input("Reingrese su contraseña (4 dígitos): ")
         nombreUsuario = input("Ingrese su nombre: ")
-        equipo = input("Ingrese con que equipo va a jugar: ")
+        equipos = ["Argentinos Juniors", "Atlético Tucumán", "Banfield", "Barracas Central", "Belgrano", "Boca Juniors", "Deportivo Riestra", "Defensa y Justicia", "Estudiantes", "Gimnasia", "Godoy Cruz", "Huracán", "Independiente", "Independiente de Rivadavia", "Instituto", "Lanús", "Newell's Old Boys", "Platense", "Racing", "River Plate", "Rosario Central", "Sarmiento", "San Lorenzo", "Talleres", "Tigre", "Unión", "Vélez", "Central Córdoba"]
+
+        equipos_por_pagina = 7
+        pagina_actual = 0
+
+        def mostrar_equipos(pagina):
+            inicio = pagina * equipos_por_pagina
+            fin = inicio + equipos_por_pagina
+            for i, equipo in enumerate(equipos[inicio:fin], start=1):
+                print(f"{i}. {equipo}")
+                
+        while True:
+            print("\nEquipos:")
+            mostrar_equipos(pagina_actual)
+            
+            opcion = input("\nElige un equipo (1-7), 'n' para siguiente página, 'p' para anterior").lower()
+            
+            if opcion == 'n' and (pagina_actual + 1) * equipos_por_pagina < len(equipos):
+                pagina_actual += 1
+            elif opcion == 'p' and pagina_actual > 0:
+                pagina_actual -= 1
+            else:
+                try:
+                    eleccion = int(opcion) - 1
+                    if 0 <= eleccion < equipos_por_pagina:
+                        equipo = equipos[pagina_actual * equipos_por_pagina + eleccion]
+                        print(f"\nHas elegido: {equipo}")
+                        break
+                except ValueError:
+                    print("Opción no válida, intenta de nuevo.")
+
         sexo = input("Ingrese su sexo. M para Masculino, F para Femenino o X para otros: ")
         while not validarSexo(sexo):
             sexo = input("Sexo incorrecto, ingrese su sexo nuevamente. M para Masculino, F para Femenino o X para otros: ")
@@ -94,3 +124,9 @@ def obtenerDatosUsuario(mail):
             if mail == mailArchivo:
                 return userArchivo,equipo
         arch.close()
+
+
+
+
+
+
