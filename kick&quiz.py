@@ -3,7 +3,7 @@ rutaArchivo2 = "Files\preguntas.txt"
 
 rutaElegida = rutaArchivo1
 
-from triviaPreguntas import jugarPreguntas, agregarPregunta, cargarPreguntas, obtenerNumeroPregunta
+from triviaPreguntas import jugarPreguntas, agregarPregunta, cargarPreguntas
 from ranking import mostrarRanking, actualizarRanking, puntuaciones
 from inicioSesion import inicioSesion
 from estadisticas import calcularEstadisticas
