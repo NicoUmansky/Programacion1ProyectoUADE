@@ -6,8 +6,9 @@ def inicioSesion():
     validarInicio = lambda eleccion:  eleccion.isdigit() and decision in ['1', '2']
     validarContra = lambda contra: contra.isdigit() and len(contra) == 4    
     validarSexo = lambda sex: sex.upper() == "M" or sex.upper() == "F" or sex.upper() == "X"
-
+        
     decision = input("Presione 1 para Iniciar Sesión o 2 para Registrarse en su cuenta: ")
+    
     while not validarInicio(decision):
         print("Opción incorrecta.")
         decision = input("Presione 1 para Iniciar Sesión o 2 para Registrarse en su cuenta: ")
@@ -26,12 +27,11 @@ def inicioSesion():
             print("Contraseña incorrecta.")
             contraUsuario = input("Reingrese su contraseña (4 dígitos): ")
         
-
         nombreUsuario,equipo = obtenerDatosUsuario(mailUsuario)
         print(f"¡Hola {nombreUsuario}!")
         return nombreUsuario, equipo    
+    
     # Registro de usuario
-
     else: 
         mailUsuario = input("Ingrese su mail: ")
         while validarMailExistente(mailUsuario):
@@ -41,7 +41,10 @@ def inicioSesion():
         while not validarContra(contraUsuario):
             print("Contraseña incorrecta. Debe ser un número de 4 dígitos.")
             contraUsuario = input("Reingrese su contraseña (4 dígitos): ")
-        nombreUsuario = input("Ingrese su nombre: ")
+        nombreUsuario = input("Ingrese su nombre de usuario: ")
+        while validarNombreUsuario(nombreUsuario):
+            print("Nombre ya existente!")
+            nombreUsuario = input("Reingrese su nombre de usuario: ")
         equipos = ["Argentinos Juniors", "Atlético Tucumán", "Banfield", "Barracas Central", "Belgrano", "Boca Juniors", "Deportivo Riestra", "Defensa y Justicia", "Estudiantes", "Gimnasia", "Godoy Cruz", "Huracán", "Independiente", "Independiente de Rivadavia", "Instituto", "Lanús", "Newell's Old Boys", "Platense", "Racing", "River Plate", "Rosario Central", "Sarmiento", "San Lorenzo", "Talleres", "Tigre", "Unión", "Vélez", "Central Córdoba"]
 
         equipos_por_pagina = 7
@@ -99,11 +102,25 @@ def validarMailExistente(mail):
     else:
         for linea in arch:
             mailArchivo, x1, x2, x3, x4 = linea.strip().split(";")
-            if mail == mailArchivo:
+            if mail.lower() == mailArchivo.lower():
                 return True
         arch.close()
         return False
 
+def validarNombreUsuario(nombreUsuario):
+    try:
+        arch = open(rutaElegida, "rt")
+    except IOError:
+        print("Error al abrir el archivo")
+    else:
+        for linea in arch:
+            x0, nombreUsuarioArchivo, x2, x3, x4 = linea.strip().split(";")
+            if nombreUsuario.lower() == nombreUsuarioArchivo.lower():
+                return True
+        arch.close()
+        return False
+    
+    
 def validarInicioSesion(mail, contra):
     try:
         arch = open(rutaElegida, "rt")
