@@ -51,6 +51,8 @@ validarCasillero = lambda casillero: casillero.isdigit() and 1 <= int(casillero)
 
 def penal(equipo):
     rival = random.choice(equipos_argentinos)
+    while rival == equipo:
+        rival = random.choice(equipos_argentinos)
     gol = False
     print(f"Comienza el partido, {equipo} vs {rival}")
     print("Es momento de patear un penal para tener la posibilidad de sumar puntos extra, elegí a donde querés patear:")

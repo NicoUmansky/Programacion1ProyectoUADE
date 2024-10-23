@@ -25,12 +25,12 @@ def mostrarMenu():
     opcion = input(white + "Seleccione una opción (1, 2 o 3): ")
     return opcion
 
-def cargarPreguntas(rutaArchivo):
+def cargarPreguntas(rutaElegida):
     preguntas = {}
     opciones = []
     respuestasCorrectas = []
     try:
-        file = open(rutaArchivo, 'r', encoding='utf-8')
+        file = open(rutaElegida, 'r', encoding='utf-8')
         lines = file.readlines()
         file.close()
 
@@ -79,7 +79,7 @@ def main():
             print(blue + "¡Empecemos a jugar!")
             print(red + "Tienes 3 vidas disponibles. ¡Aprovechalas! ❤️  ❤️  ❤️" + reset)
             
-            preguntas, opciones, respuestasCorrectas = cargarPreguntas(rutaArchivo)
+            preguntas, opciones, respuestasCorrectas = cargarPreguntas(rutaElegida)
 
             puntuacionFinal = jugarPreguntas(preguntas, opciones, respuestasCorrectas, equipo)
             print(green + f"Juego terminado. Tu puntuación final es {puntuacionFinal}.")
