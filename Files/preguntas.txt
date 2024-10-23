@@ -37,4 +37,5 @@
 37; ¿Qué corriente artística se asocia con el artista argentino Antonio Berni?;Surrealismo, Realismo social, Cubismo, Expresionismo; 1
 38; ¿Cuál es el festival de música más grande de Argentina?;Lollapalooza, Cosquín Rock, Festival Internacional de Jazz, Quilmes Rock; 0
 39; ¿En qué año fue inaugurado el Metrobús en Buenos Aires?;2010, 2015, 2012, 2018; 1
-40; ¿Quién es conocido como "La Negra"?;Mercedes Sosa, Chavela Vargas, Violeta Parra, Susana Giménez; 0
+40; ¿Quién es conocido como "La Negra"?;Mercedes Sosa, Chavela Vargas, Violeta Parra, Susana Giménez;0
+41;hola;mica,jose,pepe ,rosi;2
