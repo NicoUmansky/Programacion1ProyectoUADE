@@ -7,7 +7,7 @@ from triviaPreguntas import jugarPreguntas, agregarPregunta, cargarPreguntas
 # from ranking import mostrarRanking, actualizarRanking, puntuaciones
 from probandoRanking import chequeoRanking,mostrarRanking     
 from inicioSesion import inicioSesion
-from estadisticas import calcularEstadisticas
+from estadisticas import calcularEstadisticas, calcularEstadisticasPenales
 import random
 
 # Colores usando código ANSI
