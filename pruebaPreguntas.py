@@ -1,6 +1,5 @@
 rutaArchivo = "Programacion1ProyectoUADE/Files/preguntas.txt"
-from triviaPreguntas import validarRespuesta
-from funcionesGenericas import validarRespuesta
+
 # Colores para impresión
 yellow = '\x1b[33m'
 blue = '\x1b[34m'
@@ -13,14 +12,14 @@ def cargarPreguntas(rutaElegida):
     respuestasCorrectas = []
     try:
         archivoPreguntas = open(rutaElegida, 'r', encoding='utf-8')
-        lines = archivoPreguntas.readlines()
+        lineas = archivoPreguntas.readlines()
         archivoPreguntas.close()
 
-        for line in lines:
-            partes = line.strip().split(';')
+        for linea in lineas:
+            partes = linea.strip().split(';')
             numeroPregunta = int(partes[0].strip())
             pregunta = partes[1].strip()
-            opcion = [option.strip() for option in partes[2].split(',')]
+            opcion = [opcion.strip() for opcion in partes[2].split(',')]
             respuestaCorrecta = int(partes[3].strip())
             
             preguntas[numeroPregunta] = {
@@ -38,16 +37,10 @@ def cargarPreguntas(rutaElegida):
     return preguntas, opciones, respuestasCorrectas
 
 def agregarPregunta(rutaArchivo):
-    preguntaEnArchivo = True
-    while preguntaEnArchivo:
+    
         print(yellow + "Agregar Nueva Pregunta:" + reset)
         pregunta = input("Ingrese la pregunta: ")
-
-        preguntasExistentes = cargarPreguntas(rutaArchivo)[0]
-        if pregunta in [p['pregunta'] for p in preguntasExistentes.values()]:
-            print(f"{yellow}Error: La pregunta ya existe. Por favor, ingrese una nueva.{reset}")
-            continue  # Volver a pedir la pregunta
-
+    
         opciones = []
         for i in range(4):
             opcion = input(f"Ingrese la opción de respuesta {i + 1}: ")
@@ -63,40 +56,29 @@ def agregarPregunta(rutaArchivo):
         numeroPregunta = obtenerNumeroPregunta(rutaArchivo)
         opcionesTexto = ','.join(opciones)
 
-        archivoPreguntas.write(f"\n{numeroPregunta};{pregunta};{opcionesTexto};{respuestaCorrecta}")
+        archivoPreguntas.write(f"{numeroPregunta};{pregunta};{opcionesTexto};{respuestaCorrecta}\n")
         archivoPreguntas.close() 
-        print(yellow + "Pregunta agregada con éxito." + reset)
-        preguntaEnArchivo = False
+        print(yellow + "¡Pregunta agregada exitosamente!" + reset)
 
 def obtenerNumeroPregunta(rutaArchivo):
+    #Consigo el numero de la ultima pregunta para asignarle el siguiente numero a la que estoy creando
     try:
         archivoPreguntas = open(rutaArchivo, 'r', encoding='utf-8')
-        lines = archivoPreguntas.readlines()
+        lineas = archivoPreguntas.readlines()
         archivoPreguntas.close()
-        
-        if lines:
-            ultimoLinea = lines[-1].strip()
+        if lineas:
+            ultimoLinea = lineas[-1].strip()
             return int(ultimoLinea.split(';')[0]) + 1
         else:
-            return 1 
+            return 1 #Si el archivo esta vacio porque no hay preguntas, le asigno el indice 1
+        
     except FileNotFoundError:
-        return 1 
+        print("Error: No se pudo encontrar el archivo de preguntas.")
+        return 0
 
 def main():
-    # Cargo en el diccionario las preguntas existentes
-    preguntas, opciones, respuestasCorrectas = cargarPreguntas(rutaArchivo)
-
-    # Recorro 
-    print("Preguntas cargadas:")
-    for numero, pregunta in preguntas.items():
-        print(f"{numero}: {pregunta['pregunta']}")
-        for i, opcion in enumerate(pregunta['opciones']):
-            print(f"   Opción {i + 1}: {opcion}")
-        print(f"   Respuesta correcta: Opción {pregunta['respuestaCorrecta'] + 1}\n")
-
-    #Agrego una pregunta
     agregarPregunta(rutaArchivo)
-
+    
 
 if __name__ == "__main__":
     main()
