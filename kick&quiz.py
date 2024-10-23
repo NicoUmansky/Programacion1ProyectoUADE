@@ -31,9 +31,9 @@ def cargarPreguntas(rutaElegida):
     opciones = []
     respuestasCorrectas = []
     try:
-        file = open(rutaElegida, 'r', encoding='utf-8')
-        lines = file.readlines()
-        file.close()
+        archivoPreguntas = open(rutaElegida, 'r', encoding='utf-8')
+        lines = archivoPreguntas.readlines()
+        archivoPreguntas.close()
 
         for line in lines:
             partes = line.strip().split(';')
