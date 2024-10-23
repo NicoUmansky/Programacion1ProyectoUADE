@@ -1,9 +1,9 @@
 rutaArchivo1 = "Programacion1ProyectoUADE/Files/preguntas.txt" 
 rutaArchivo2 = "Files\preguntas.txt"
 
-rutaElegida = rutaArchivo2
+rutaElegida = rutaArchivo1
 
-from triviaPreguntas import jugarPreguntas
+from triviaPreguntas import jugarPreguntas, agregarPregunta, cargarPreguntas
 from ranking import mostrarRanking, actualizarRanking, puntuaciones
 from inicioSesion import inicioSesion
 from estadisticas import calcularEstadisticas
@@ -26,36 +26,6 @@ def mostrarMenu():
     print(yellow + "4. Salir")
     opcion = input(white + "Seleccione una opción (1, 2, 3 o 4): ")
     return opcion
-
-def cargarPreguntas(rutaElegida):
-    preguntas = {}
-    opciones = []
-    respuestasCorrectas = []
-    try:
-        archivoPreguntas = open(rutaElegida, 'r', encoding='utf-8')
-        lineas = archivoPreguntas.readlines()
-        archivoPreguntas.close()
-
-        for linea in lineas:
-            partes = linea.strip().split(';')
-            numeroPregunta = int(partes[0].strip())
-            pregunta = partes[1].strip()
-            opcion = [opcion.strip() for opcion in partes[2].split(',')]
-            respuestaCorrecta = int(partes[3].strip())
-            
-            preguntas[numeroPregunta] = {
-                "pregunta": pregunta,
-                "opciones": opcion,
-                "respuestaCorrecta": respuestaCorrecta
-            }
-            
-            opciones.append(opcion)
-            respuestasCorrectas.append(respuestaCorrecta)
-
-    except FileNotFoundError:
-        print("Error: No se pudo encontrar el archivo de preguntas.")
-    
-    return preguntas, opciones, respuestasCorrectas
 
 
 def main():
@@ -99,7 +69,7 @@ def main():
             mostrarRanking()
     
         elif opcion == '3': 
-            print(red + "¡Agregar pregunta! ¡Próximamente!")
+            agregarPregunta(rutaElegida)
             
         elif opcion == '4': 
             print(red + "¡Muchas gracias por jugar! Te esperamos nuevamente.")
