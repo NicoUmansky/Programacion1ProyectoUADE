@@ -102,7 +102,7 @@ def validarMailExistente(mail):
 
 def validarInicioSesion(mail, contra):
     try:
-        arch =  open(r"Programacion1ProyectoUADE\Files\usuarios.csv", "rt")
+        arch =  open(r"Programacion1ProyectoUADE/Files/usuarios.csv", "rt")
     except IOError:
         print("Error al abrir el archivo")
     else:
@@ -115,7 +115,7 @@ def validarInicioSesion(mail, contra):
     
 def obtenerDatosUsuario(mail):
     try:
-        arch = open(r"Programacion1ProyectoUADE\Files\usuarios.csv", "rt")
+        arch = open(r"Programacion1ProyectoUADE/Files/usuarios.csv", "rt")
     except IOError:
         print("Error al abrir el archivo")
     else:
