@@ -1,11 +1,12 @@
 rutaArchivo1 = "Programacion1ProyectoUADE/Files/preguntas.txt" 
 rutaArchivo2 = "Files\preguntas.txt"
 
-rutaElegida = rutaArchivo1
+rutaElegida = rutaArchivo2
 
 from triviaPreguntas import jugarPreguntas
 from ranking import mostrarRanking, actualizarRanking, puntuaciones
 from inicioSesion import inicioSesion
+from estadisticas import calcularEstadisticas
 import random
 
 # Colores usando código ANSI
@@ -31,15 +32,15 @@ def cargarPreguntas(rutaElegida):
     opciones = []
     respuestasCorrectas = []
     try:
-        file = open(rutaElegida, 'r', encoding='utf-8')
-        lines = file.readlines()
-        file.close()
+        archivoPreguntas = open(rutaElegida, 'r', encoding='utf-8')
+        lineas = archivoPreguntas.readlines()
+        archivoPreguntas.close()
 
-        for line in lines:
-            partes = line.strip().split(';')
+        for linea in lineas:
+            partes = linea.strip().split(';')
             numeroPregunta = int(partes[0].strip())
             pregunta = partes[1].strip()
-            opcion = [option.strip() for option in partes[2].split(',')]
+            opcion = [opcion.strip() for opcion in partes[2].split(',')]
             respuestaCorrecta = int(partes[3].strip())
             
             preguntas[numeroPregunta] = {
@@ -56,45 +57,7 @@ def cargarPreguntas(rutaElegida):
     
     return preguntas, opciones, respuestasCorrectas
 
-#NUEVO DE AGREGAR PREGUNTAS
-def agregarPregunta(rutaArchivo):
-    print(cyan + "Agregar Nueva Pregunta:" + reset)
-    pregunta = input("Ingrese la pregunta: ")
-    
-    opciones = []
-    for i in range(4):
-        opcion = input(f"Ingrese la opción de respuesta {i + 1}: ")
-        opciones.append(opcion)
-    
-    respuestaCorrecta = input("Ingrese el número de la opción correcta (1-4): ")
-    while not (respuestaCorrecta.isdigit() and int(respuestaCorrecta) in [1, 2, 3, 4]):
-        print(f"{yellow}Opción inválida. Debe ser un número entre 1 y 4.{reset}")
-        respuestaCorrecta = input("Ingrese el número de la opción correcta (1-4): ")
 
-# Agarro y corro a todo 1 indice menor, porque empiezan en 1 y yo necesito que empiecen en 0
-    respuestaCorrecta = int(respuestaCorrecta) - 1  
-    
-# Guardamos la nueva pregunta en el archivo
-    archivoPreguntas = open(rutaArchivo, 'a', encoding='utf-8')
-    numeroPregunta = obtenerNumeroPregunta(rutaArchivo)
-    opcionesTexto = ','.join(opciones)
-    archivoPreguntas.write(f"{numeroPregunta};{pregunta};{opcionesTexto};{respuestaCorrecta}\n")
-    archivoPreguntas.close()
-    
-    print(green + "Pregunta agregada con éxito." + reset)
-
-def obtenerNumeroPregunta(rutaArchivo):
-    try:
-        with open(rutaArchivo, 'r', encoding='utf-8') as archivoPreguntas:
-            lines = archivoPreguntas.readlines()
-            if lines:
-                ultimoLinea = lines[-1].strip()
-                return int(ultimoLinea.split(';')[0]) + 1
-            else:
-                return 1 
-    except FileNotFoundError:
-        return 1 
-    
 def main():
 
     continuar = True
@@ -119,10 +82,11 @@ def main():
             print(blue + "¡Empecemos a jugar!")
             print(red + "Tienes 3 vidas disponibles. ¡Aprovechalas! ❤️  ❤️  ❤️" + reset)
             
-            preguntas, opciones, respuestasCorrectas = cargarPreguntas(rutaElegida)
+            preguntas, opciones, indiceCorrectas = cargarPreguntas(rutaElegida)
 
-            puntuacionFinal = jugarPreguntas(preguntas, opciones, respuestasCorrectas, equipo)
+            puntuacionFinal, respuestasCorrectas, respuestasTotales, efectividad = jugarPreguntas(preguntas, opciones, indiceCorrectas, equipo)
             print(green + f"Juego terminado. Tu puntuación final es {puntuacionFinal}.")
+            calcularEstadisticas(nombreUsuario, respuestasTotales, respuestasCorrectas, puntuacionFinal, efectividad)
 
             actualizarRanking(nombreUsuario, puntuacionFinal)
 
@@ -130,6 +94,7 @@ def main():
             if cambiarUsuario != 'SI':
                 print(red + "¡Muchas gracias por jugar! Te esperamos nuevamente.")
                 continuar = False
+                
         elif opcion == '2':
             mostrarRanking()
     
@@ -142,7 +107,6 @@ def main():
     
         else:
             print(red + "Opción inválida. Por favor, selecciona 1, 2 o 3.")
-
 
 if __name__ == "__main__":
     main()

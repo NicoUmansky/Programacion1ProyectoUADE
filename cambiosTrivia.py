@@ -17,12 +17,9 @@ def mostrarPregunta(pregunta, opciones):
 
 validarRespuesta = lambda respuesta: respuesta.isdigit() and respuesta in ['1', '2', '3', '4']
 
-def jugarPreguntas(preguntas, opciones, indiceCorrectas, equipo):
-    respuestasCorrectas = 0
-    respuestasIncorrectas = 0
+def jugarPreguntas(preguntas, opciones, respuestasCorrectas, equipo):
     vidas = 3
     puntuacion = 0
-    efectividad = 0
     preguntasHechas = []
     
     while len(preguntasHechas) < len(preguntas):
@@ -31,9 +28,7 @@ def jugarPreguntas(preguntas, opciones, indiceCorrectas, equipo):
         preguntasHechas.append(indiceElegido)
         
         if vidas <= 0:
-            respuestasTotales = respuestasCorrectas + respuestasIncorrectas
-            efectividad = (respuestasCorrectas/respuestasTotales) * 100
-            return puntuacion, respuestasCorrectas, respuestasTotales, efectividad
+            return puntuacion
         
         mostrarPregunta(preguntas[indiceElegido]["pregunta"], preguntas[indiceElegido]["opciones"])
         respuestaUsuario = input("Seleccione una opción (1-4): ")
@@ -44,7 +39,6 @@ def jugarPreguntas(preguntas, opciones, indiceCorrectas, equipo):
         
         if (int(respuestaUsuario) - 1) == preguntas[indiceElegido]["respuestaCorrecta"]:
             print(f"{green}¡Respuesta correcta!{reset}")
-            respuestasCorrectas += 1
             puntuacion += 2
             gol = penal(equipo)
             if gol:
@@ -61,14 +55,6 @@ def jugarPreguntas(preguntas, opciones, indiceCorrectas, equipo):
         else:
             print(f"{blue}Respuesta incorrecta.{reset}")
             vidas -= 1
-            respuestasIncorrectas += 1
             print(f"{red}Te quedan {vidas} vidas.{reset}")
-        
-    respuestasTotales = respuestasCorrectas + respuestasIncorrectas
-    efectividad = (respuestasCorrectas/respuestasTotales) * 100
 
-    print(puntuacion)
-    print(respuestasCorrectas)
-    print(respuestasTotales)
-    print(efectividad)
-    return puntuacion, respuestasCorrectas, respuestasTotales, efectividad
+    return puntuacion

@@ -18,23 +18,23 @@
 18; ¿Qué provincia argentina limita con Bolivia y Paraguay?;Formosa, Salta, Jujuy, Misiones; 0
 19; ¿Cuál es el nombre del primer satélite argentino lanzado al espacio?;SAC-B, ARSAT-1, LUSAT-1, SAOCOM 1A; 2
 20; ¿En qué ciudad argentina se realiza anualmente la Fiesta Nacional de la Vendimia?;San Juan, Mendoza, La Rioja, San Rafael; 1
-21; ¿Cuál fue la primera película argentina en ganar un premio Óscar?;La Historia Oficial, El Secreto de Sus Ojos, Camila, Nueve Reinas;1
+21; ¿Cuál fue la primera película argentina en ganar un premio Óscar?;La Historia Oficial, El Secreto de Sus Ojos, Camila, Nueve Reinas;0
 22; ¿En qué año se inauguró el Obelisco de Buenos Aires?;1938, 1945, 1952, 1936;3
 23; ¿Qué famoso músico argentino lideró la banda Soda Stereo?;Luis Alberto Spinetta, Fito Páez, Charly García, Gustavo Cerati;3
 24; ¿Cuál es el animal nacional de Argentina?;El cóndor, El yaguareté, La vaca, El pingüino; 0
 25; ¿Quién fue el primer argentino en recibir un Premio Nobel?;Carlos Saavedra Lamas, César Milstein, Adolfo Pérez Esquivel, Bernardo Houssay; 0
 26; ¿Cuál es la lengua indígena más hablada en Argentina?;Guaraní, Quechua, Mapudungun, Wichí; 1
 27; ¿En qué provincia se encuentra el cerro Aconcagua?;Mendoza, Neuquén, Río Negro, Salta; 0
-28; ¿Quién es el autor del famoso poema "Martín Fierro"?;Jorge Luis Borges, Ricardo Güiraldes, José Hernández, Leopoldo Lugones; 1
-29; ¿Qué ciudad argentina es conocida como "La Perla del Oeste"?;Mendoza, San Juan, Neuquén, Salta; 2
+28; ¿Quién es el autor del famoso poema "Martín Fierro"?;Jorge Luis Borges, Ricardo Güiraldes, José Hernández, Leopoldo Lugones; 2
+29; ¿Qué ciudad argentina es conocida como "La Perla del Oeste"?;Mendoza, San Juan, Neuquén, Salta; 1
 30; ¿Cuál es el nombre de la famosa danza folclórica argentina?;Cumbia, Tango, Salsa, Samba; 1
 31; ¿En qué año se creó la Constitución Nacional de Argentina?;1853, 1860, 1949, 1810; 0
-32; ¿Cuál es el nombre del famoso artista plástico argentino que pintó "El mural de la Casa Rosada"?;Rufino Tamayo, Antonio Berni, Quinquela Martín, David Alfaro Siqueiros; 2
+32; ¿Cuál es el nombre del famoso artista plástico argentino que pintó "El mural de la Casa Rosada"?;Rufino Tamayo, Antonio Berni, Quinquela Martín, David Alfaro Siqueiros; 1
 33; ¿Qué partido político fundó Juan Domingo Perón?;Radicalismo, Justicialismo, Socialismo, Conservadurismo; 1
 34; ¿En qué ciudad se encuentra la Casa de la Cultura de Buenos Aires?;CABA, La Plata, Rosario, Córdoba; 0
 35; ¿Cuál es la playa más famosa de Argentina?;Playa Varese, Playa de los Ingleses, Playa del Norte, Playa de Mar del Plata; 1
 36; ¿Quién fue la primera mujer en ocupar un cargo de ministra en Argentina?;Eva Perón, Susana Giménez, Alicia Moreau de Justo, Graciela Fernández Meijide; 2
 37; ¿Qué corriente artística se asocia con el artista argentino Antonio Berni?;Surrealismo, Realismo social, Cubismo, Expresionismo; 1
 38; ¿Cuál es el festival de música más grande de Argentina?;Lollapalooza, Cosquín Rock, Festival Internacional de Jazz, Quilmes Rock; 0
-39; ¿En qué año fue inaugurado el Metrobús en Buenos Aires?;2010, 2015, 2012, 2018; 1
-40; ¿Quién es conocido como "La Negra"?;Mercedes Sosa, Chavela Vargas, Violeta Parra, Susana Giménez; 0
+39; ¿En qué año fue inaugurado el Metrobús en Buenos Aires?;2010, 2015, 2012, 2018; 2
+40; ¿Quién es conocido como "La Negra"?;Mercedes Sosa, Chavela Vargas, Violeta Parra, Susana Giménez;0
