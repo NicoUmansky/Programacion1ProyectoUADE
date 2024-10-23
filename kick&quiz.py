@@ -21,8 +21,9 @@ def mostrarMenu():
     print(cyan + "Menú Principal:")
     print(yellow + "1. Jugar")
     print(yellow + "2. Ver Ranking")
-    print(yellow + "3. Salir")
-    opcion = input(white + "Seleccione una opción (1, 2 o 3): ")
+    print(yellow + "3. ¡Agregar Pregunta!")
+    print(yellow + "4. Salir")
+    opcion = input(white + "Seleccione una opción (1, 2, 3 o 4): ")
     return opcion
 
 def cargarPreguntas(rutaElegida):
@@ -55,6 +56,45 @@ def cargarPreguntas(rutaElegida):
     
     return preguntas, opciones, respuestasCorrectas
 
+#NUEVO DE AGREGAR PREGUNTAS
+def agregarPregunta(rutaArchivo):
+    print(cyan + "Agregar Nueva Pregunta:" + reset)
+    pregunta = input("Ingrese la pregunta: ")
+    
+    opciones = []
+    for i in range(4):
+        opcion = input(f"Ingrese la opción de respuesta {i + 1}: ")
+        opciones.append(opcion)
+    
+    respuestaCorrecta = input("Ingrese el número de la opción correcta (1-4): ")
+    while not (respuestaCorrecta.isdigit() and int(respuestaCorrecta) in [1, 2, 3, 4]):
+        print(f"{yellow}Opción inválida. Debe ser un número entre 1 y 4.{reset}")
+        respuestaCorrecta = input("Ingrese el número de la opción correcta (1-4): ")
+
+# Agarro y corro a todo 1 indice menor, porque empiezan en 1 y yo necesito que empiecen en 0
+    respuestaCorrecta = int(respuestaCorrecta) - 1  
+    
+# Guardamos la nueva pregunta en el archivo
+    archivoPreguntas = open(rutaArchivo, 'a', encoding='utf-8')
+    numeroPregunta = obtenerNumeroPregunta(rutaArchivo)
+    opcionesTexto = ','.join(opciones)
+    archivoPreguntas.write(f"{numeroPregunta};{pregunta};{opcionesTexto};{respuestaCorrecta}\n")
+    archivoPreguntas.close()
+    
+    print(green + "Pregunta agregada con éxito." + reset)
+
+def obtenerNumeroPregunta(rutaArchivo):
+    try:
+        with open(rutaArchivo, 'r', encoding='utf-8') as archivoPreguntas:
+            lines = archivoPreguntas.readlines()
+            if lines:
+                ultimoLinea = lines[-1].strip()
+                return int(ultimoLinea.split(';')[0]) + 1
+            else:
+                return 1 
+    except FileNotFoundError:
+        return 1 
+    
 def main():
 
     continuar = True
@@ -94,6 +134,9 @@ def main():
             mostrarRanking()
     
         elif opcion == '3': 
+            print(red + "¡Agregar pregunta! ¡Próximamente!")
+            
+        elif opcion == '4': 
             print(red + "¡Muchas gracias por jugar! Te esperamos nuevamente.")
             continuar = False
     
