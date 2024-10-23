@@ -1,3 +1,5 @@
+rutaArchivo = "Programacion1ProyectoUADE/Files/preguntas.txt" 
+
 from triviaPreguntas import jugarPreguntas
 from ranking import mostrarRanking, actualizarRanking, puntuaciones
 from inicioSesion import inicioSesion
@@ -51,7 +53,6 @@ def cargarPreguntas(rutaArchivo):
     return preguntas, opciones, respuestasCorrectas
 
 def main():
-    rutaArchivo = "Programacion1ProyectoUADE/Files/preguntas.txt" 
 
     continuar = True
     
