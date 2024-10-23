@@ -36,7 +36,7 @@ def cargarPreguntas(rutaElegida):
     
     return preguntas, opciones, respuestasCorrectas
 
-def agregarPregunta(rutaArchivo):
+def agregarPregunta(rutaElegida):
     
         print(yellow + "Agregar Nueva Pregunta:" + reset)
         pregunta = input("Ingrese la pregunta: ")
@@ -60,7 +60,7 @@ def agregarPregunta(rutaArchivo):
         archivoPreguntas.close() 
         print(yellow + "¡Pregunta agregada exitosamente!" + reset)
 
-def obtenerNumeroPregunta(rutaArchivo):
+def obtenerNumeroPregunta(ruta):
     #Consigo el numero de la ultima pregunta para asignarle el siguiente numero a la que estoy creando
     try:
         archivoPreguntas = open(rutaArchivo, 'r', encoding='utf-8')
