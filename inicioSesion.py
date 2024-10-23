@@ -1,7 +1,7 @@
 rutaArchivo1 = r"Programacion1ProyectoUADE\Files\usuarios.csv" 
 rutaArchivo2 = r"Files\usuarios.csv"
 
-rutaElegida = rutaArchivo1
+rutaElegida = rutaArchivo2
 def inicioSesion():
     validarInicio = lambda eleccion:  eleccion.isdigit() and decision in ['1', '2']
     validarContra = lambda contra: contra.isdigit() and len(contra) == 4    
@@ -80,7 +80,7 @@ def inicioSesion():
         while not validarSexo(sexo):
             sexo = input("Sexo incorrecto, ingrese su sexo nuevamente. M para Masculino, F para Femenino o X para otros: ")
         
-        registroCSV(mailUsuario, nombreUsuario, contraUsuario, equipo, sexo)
+        registroCSV(mailUsuario, nombreUsuario, contraUsuario, equipo, sexo.upper())
         
         print(f"¡Hola {nombreUsuario}, a llevar a {equipo} a la gloria!")
         return nombreUsuario, equipo

@@ -1,10 +1,11 @@
-rutaArchivo1 = "Programacion1ProyectoUADE/Files/preguntas.txt" 
-rutaArchivo2 = "Files\preguntas.txt"
+rutaArchivo1 = r"Programacion1ProyectoUADE/Files/preguntas.txt" 
+rutaArchivo2 = r"Files\preguntas.txt"
 
-rutaElegida = rutaArchivo1
+rutaElegida = rutaArchivo2
 
 from triviaPreguntas import jugarPreguntas, agregarPregunta, cargarPreguntas
-from ranking import mostrarRanking, actualizarRanking, puntuaciones
+# from ranking import mostrarRanking, actualizarRanking, puntuaciones
+from probandoRanking import chequeoRanking,mostrarRanking     
 from inicioSesion import inicioSesion
 from estadisticas import calcularEstadisticas
 import random
@@ -36,18 +37,18 @@ def main():
         opcion = mostrarMenu()
         
         if opcion == '1':
-            print(red + "¡Bienvenido a Trivia Argentina!")
+            print(red + "¡Bienvenido a Kick&Quiz!")
             print(yellow + "Por favor, ingrese a su cuenta o regístrese para empezar a jugar.")
             
             cambiarUsuario = True
             while cambiarUsuario:
                 nombreUsuario, equipo = inicioSesion()
-                usuarioEnRanking = any(usuario[0] == nombreUsuario for usuario in puntuaciones)
+                # usuarioEnRanking = any(usuario[0] == nombreUsuario for usuario in puntuaciones)
                 
-                if usuarioEnRanking:
-                    print(red + "Ya jugaste y estás en el ranking. Por favor, inicia sesión con otro usuario.")
-                else:
-                    cambiarUsuario = False 
+                # if usuarioEnRanking:
+                #     print(red + "Ya jugaste y estás en el ranking. Por favor, inicia sesión con otro usuario.")
+                # else:
+                cambiarUsuario = False 
 
             print(blue + "¡Empecemos a jugar!")
             print(red + "Tienes 3 vidas disponibles. ¡Aprovechalas! ❤️  ❤️  ❤️" + reset)
@@ -58,8 +59,8 @@ def main():
             print(green + f"Juego terminado. Tu puntuación final es {puntuacionFinal}.")
             calcularEstadisticas(nombreUsuario, respuestasTotales, respuestasCorrectas, puntuacionFinal, efectividad)
 
-            actualizarRanking(nombreUsuario, puntuacionFinal)
-
+            chequeoRanking(nombreUsuario, equipo, puntuacionFinal)
+            mostrarRanking(nombreUsuario)
             cambiarUsuario = input(white + "¿Quieres cambiar de usuario para intentar de nuevo? Ingresá SI para cambiar, o presioná cualquier tecla para salir: ").upper()
             if cambiarUsuario != 'SI':
                 print(red + "¡Muchas gracias por jugar! Te esperamos nuevamente.")

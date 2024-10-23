@@ -1,22 +1,23 @@
 rutaArchivo1 = r"Programacion1ProyectoUADE\Files\usuarios.csv" 
 rutaArchivo2 = r"Files\ranking.csv"
 
-rutaElegida = rutaArchivo1
+rutaElegida = rutaArchivo2
 
 
-def actualizarRanking(username,equipo,puntaje):
+def actualizarRanking(ranking):
     try:
-        arch = open(r"Programacion1ProyectoUADE\Files\ranking.csv", "wt")
+        arch = open(rutaElegida, "wt")
     except IOError:
         print("Error al abrir el archivo")    
     else:
-        arch.write(f"{username};{equipo};{puntaje}\n")
+        for username,equipo,puntaje in ranking:
+            arch.write(f"{username};{equipo};{puntaje}\n")
         arch.close()
     
 def cargarRanking():
     ranking = []
     try:
-        arch = open(r"Programacion1ProyectoUADE\Files\ranking.csv", "rt")
+        arch = open(rutaElegida, "rt",encoding='latin-1')
     except IOError:
         print("Error al abrir el archivo")  
     else:
@@ -26,7 +27,6 @@ def cargarRanking():
         arch.close()
     return ranking
         
-    
 def chequeoRanking(username,equipo,puntaje):
     ranking = cargarRanking()
     encontrado = False
@@ -38,39 +38,47 @@ def chequeoRanking(username,equipo,puntaje):
     if not encontrado:
         ranking.append([username,equipo,puntaje])
     actualizarRanking(ranking)
-        
     
-    
-        
-
-def mostrarRanking(username):
-    try:
-        arch = open(r"Programacion1ProyectoUADE\Files\ranking.csv", "rt")
-    except IOError:
-        print("Error al abrir el archivo")
+# Función recursiva que verifica si el ranking está ordenado por puntaje de mayor a menor
+def estaOrdenada(ranking):
+    '''Retorna True si está ordenada en forma descendente según los puntajes, False caso contrario. Recursiva'''
+    if len(ranking) < 2:
+        return True
     else:
-        ranking = []
-        for linea in arch:
-            userArchivo, equipoArchivo, puntajeArchivo = linea.strip().split(";")
-            ranking.append((userArchivo, equipoArchivo, int(puntajeArchivo)))
-        arch.close()
+        if int(ranking[0][2]) >= int(ranking[1][2]):
+            return estaOrdenada(ranking[1:])
+        else:
+            return False
         
-        # Sort the ranking by score in descending order
-        ranking.sort(key=lambda x: x[2], reverse=True)
-        
-        # Find the user's position
-        user_position = None
-        for i, v in enumerate(ranking):
-            if v[0] == username:
-                user_position = i
+def mostrarRanking(username=None):
+    ranking = cargarRanking()
+
+    # Verifica si el ranking está ordenado
+    if not estaOrdenada(ranking):
+        ranking = sorted(ranking, key=lambda x: int(x[2]), reverse=True)
+        actualizarRanking(ranking)
+
+    # Mostrar solo el top 10
+    top10 = ranking[:10]
+
+    # Variable para almacenar si el usuario está fuera del top 10
+    usuarioFueraTop10 = None
+
+    # Mostrar el top 10
+    print("Top 10 del ranking:")
+    for i, register in enumerate(top10, start=1):
+        print(f"{i}. {register[0]} - {register[1]} - {register[2]}")
+    print("\n")
+
+    # Si el username es especificado y no está en el top 10
+    if username:
+        for i, register in enumerate(ranking):
+            if register[0] == username and i >= 10:
+                usuarioFueraTop10 = register
+                posicionUsuario = i + 1
                 break
-        
-        # Print the top 10 or all if less than 10
-        print("Ranking:")
-        for i, (userArchivo, equipoArchivo, puntajeArchivo) in enumerate(ranking[:10]):
-            print(f"{i + 1}. {userArchivo} - {equipoArchivo} - {puntajeArchivo}")
-        
-        # If the user is not in the top 10, print their position
-        if user_position is not None and user_position >= 10:
-            user_data = ranking[user_position]
-            print(f"...\n{user_position + 1}. {user_data[0]} - {user_data[1]} - {user_data[2]}")
+
+    # Mostrar la posición del usuario si está fuera del top 10
+    if usuarioFueraTop10:
+        print(f"El usuario {usuarioFueraTop10[0]} está en la posición {posicionUsuario}.")
+        print(f"{posicionUsuario}. {usuarioFueraTop10[0]} - {usuarioFueraTop10[1]} - {usuarioFueraTop10[2]}")

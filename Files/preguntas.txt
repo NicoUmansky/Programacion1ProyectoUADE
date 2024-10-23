@@ -38,4 +38,4 @@
 38; ¿Cuál es el festival de música más grande de Argentina?;Lollapalooza, Cosquín Rock, Festival Internacional de Jazz, Quilmes Rock; 0
 39; ¿En qué año fue inaugurado el Metrobús en Buenos Aires?;2010, 2015, 2012, 2018; 2
 40; ¿Quién es conocido como "La Negra"?;Mercedes Sosa, Chavela Vargas, Violeta Parra, Susana Giménez;0
-41;HOLAAA;MICA,NICOU,NICOG,VALEN;0
+41;Cuantas Copas Libertadores tiene Boca Juniors?;3,5,2,6;3

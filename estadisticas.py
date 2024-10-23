@@ -1,6 +1,6 @@
 rutaArchivo1 = r"Programacion1ProyectoUADE/Files/estadisticasPuntaje.csv" 
 rutaArchivo2 = r"Files\estadisticasPuntaje.csv"
-rutaElegida = rutaArchivo1
+rutaElegida = rutaArchivo2
 
 def calcularEstadisticas (usuario, a,b,c,d):
     try:
