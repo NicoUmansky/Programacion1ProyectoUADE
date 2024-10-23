@@ -1,4 +1,7 @@
-rutaArchivo = "Programacion1ProyectoUADE/Files/preguntas.txt" 
+rutaArchivo1 = "Programacion1ProyectoUADE/Files/preguntas.txt" 
+rutaArchivo2 = "Files\preguntas.txt"
+
+rutaElegida = rutaArchivo1
 
 from triviaPreguntas import jugarPreguntas
 from ranking import mostrarRanking, actualizarRanking, puntuaciones
