@@ -1,28 +1,48 @@
+rutaArchivo1 = r"Programacion1ProyectoUADE\Files\usuarios.csv" 
+rutaArchivo2 = r"Files\ranking.csv"
+
+rutaElegida = rutaArchivo1
+
+
 def actualizarRanking(username,equipo,puntaje):
     try:
-        arch = open(r"Programacion1ProyectoUADE\Files\ranking.csv", "at")
+        arch = open(r"Programacion1ProyectoUADE\Files\ranking.csv", "wt")
     except IOError:
         print("Error al abrir el archivo")    
-    if chequeoRanking(username,equipo,puntaje):
+    else:
         arch.write(f"{username};{equipo};{puntaje}\n")
         arch.close()
     
-def chequeoRanking(username,equipo,puntaje):
+def cargarRanking():
+    ranking = []
     try:
         arch = open(r"Programacion1ProyectoUADE\Files\ranking.csv", "rt")
     except IOError:
-        print("Error al abrir el archivo")
+        print("Error al abrir el archivo")  
     else:
-        encontrado = True
-        for linea in arch:
-            userArchivo, equipoArchivo, puntajeArchivo = linea.strip().split(";")
-            if username == userArchivo:
-                if puntaje < puntajeArchivo:
-                    encontrado = False
-                    # actualizarRanking(username,equipo,puntaje)    
+        for register in arch:
+            username, equipo, puntaje = register.strip().split(";")
+            ranking.append([username,equipo,puntaje])
         arch.close()
-        return encontrado
+    return ranking
+        
     
+def chequeoRanking(username,equipo,puntaje):
+    ranking = cargarRanking()
+    encontrado = False
+    for register in ranking:
+        if username == register[0]:
+            encontrado = True
+            if int(register[2]) < puntaje:
+                register[2] = puntaje
+    if not encontrado:
+        ranking.append([username,equipo,puntaje])
+    actualizarRanking(ranking)
+        
+    
+    
+        
+
 def mostrarRanking(username):
     try:
         arch = open(r"Programacion1ProyectoUADE\Files\ranking.csv", "rt")

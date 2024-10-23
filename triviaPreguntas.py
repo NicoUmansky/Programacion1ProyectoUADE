@@ -1,4 +1,4 @@
-from penales import penal, atajar
+from Penales import penal, atajar
 import random
 
 # Colores usando código ANSI

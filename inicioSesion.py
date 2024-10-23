@@ -1,4 +1,4 @@
-rutaArchivo1 = r"Programacion1ProyectoUADE/Files/usuarios.csv" 
+rutaArchivo1 = r"Programacion1ProyectoUADE\Files\usuarios.csv" 
 rutaArchivo2 = r"Files\usuarios.csv"
 
 rutaElegida = rutaArchivo1
