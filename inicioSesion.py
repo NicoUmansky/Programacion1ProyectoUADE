@@ -80,7 +80,7 @@ def inicioSesion():
 
 def registroCSV (mail, user, contra, team, sex):
     try:
-        arch = open(r"Programacion1ProyectoUADE\Files\usuarios.csv", "at")
+        arch = open(r"Programacion1ProyectoUADE/Files/usuarios.csv", "at")
     except IOError:
         print("Error al abrir el archivo")
     else:
@@ -89,7 +89,7 @@ def registroCSV (mail, user, contra, team, sex):
     
 def validarMailExistente(mail):
     try:
-        arch = open(r"Programacion1ProyectoUADE\Files\usuarios.csv", "rt")
+        arch = open(r"Programacion1ProyectoUADE/Files/usuarios.csv", "rt")
     except IOError:
         print("Error al abrir el archivo")
     else:
