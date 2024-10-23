@@ -32,14 +32,14 @@ def cargarPreguntas(rutaElegida):
     respuestasCorrectas = []
     try:
         archivoPreguntas = open(rutaElegida, 'r', encoding='utf-8')
-        lines = archivoPreguntas.readlines()
+        lineas = archivoPreguntas.readlines()
         archivoPreguntas.close()
 
-        for line in lines:
-            partes = line.strip().split(';')
+        for linea in lineas:
+            partes = linea.strip().split(';')
             numeroPregunta = int(partes[0].strip())
             pregunta = partes[1].strip()
-            opcion = [option.strip() for option in partes[2].split(',')]
+            opcion = [opcion.strip() for opcion in partes[2].split(',')]
             respuestaCorrecta = int(partes[3].strip())
             
             preguntas[numeroPregunta] = {
