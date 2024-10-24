@@ -2,6 +2,13 @@ rutaArchivo1 = r"Programacion1ProyectoUADE\Files\usuarios.csv"
 rutaArchivo2 = r"Files\ranking.csv"
 
 rutaElegida = rutaArchivo2
+cyan = '\x1b[36m'
+yellow = '\x1b[33m'
+white = '\x1b[37m'
+green = '\x1b[32m'
+red = '\x1b[31m'
+blue = '\x1b[34m'
+reset = '\x1b[0m'
 
 
 def actualizarRanking(ranking):
@@ -50,35 +57,35 @@ def estaOrdenada(ranking):
         else:
             return False
         
+def buscarUsuarioRecursiva(ranking, username, index=0):
+    '''Función recursiva que busca un usuario específico en el ranking.'''
+    if index >= len(ranking):  # Si llegamos al final del ranking
+        return None, None  # Usuario no encontrado
+    if ranking[index][0] == username:  # Si encontramos el usuario
+        return ranking[index], index + 1  # Devuelve el registro y su posición (index+1)
+    return buscarUsuarioRecursiva(ranking, username, index + 1)  # Sigue buscando en el resto del ranking
+
 def mostrarRanking(username=None):
     ranking = cargarRanking()
 
-    # Verifica si el ranking está ordenado
+    # Verifica si el ranking está ordenado y sino lo ordena
     if not estaOrdenada(ranking):
         ranking = sorted(ranking, key=lambda x: int(x[2]), reverse=True)
         actualizarRanking(ranking)
 
     # Mostrar solo el top 10
     top10 = ranking[:10]
-
-    # Variable para almacenar si el usuario está fuera del top 10
-    usuarioFueraTop10 = None
-
-    # Mostrar el top 10
     print("Top 10 del ranking:")
     for i, register in enumerate(top10, start=1):
         print(f"{i}. {register[0]} - {register[1]} - {register[2]}")
     print("\n")
 
-    # Si el username es especificado y no está en el top 10
+    # Si se especifica un usuario, buscamos recursivamente su posición
     if username:
-        for i, register in enumerate(ranking):
-            if register[0] == username and i >= 10:
-                usuarioFueraTop10 = register
-                posicionUsuario = i + 1
-                break
+        usuario, posicion = buscarUsuarioRecursiva(ranking, username)
+        if usuario and posicion > 10:
+            print(f"El usuario {usuario[0]} está en la posición {posicion}.")
+            print(f"{posicion}. {usuario[0]} - {usuario[1]} - {usuario[2]}")
+        elif not usuario:
+            print(f"El usuario {username} no se encontró en el ranking.")
 
-    # Mostrar la posición del usuario si está fuera del top 10
-    if usuarioFueraTop10:
-        print(f"El usuario {usuarioFueraTop10[0]} está en la posición {posicionUsuario}.")
-        print(f"{posicionUsuario}. {usuarioFueraTop10[0]} - {usuarioFueraTop10[1]} - {usuarioFueraTop10[2]}")

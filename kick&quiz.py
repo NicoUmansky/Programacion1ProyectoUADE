@@ -67,6 +67,7 @@ def main():
                 continuar = False
                 
         elif opcion == '2':
+            print(f"{cyan}\n")
             mostrarRanking()
     
         elif opcion == '3': 
@@ -77,7 +78,7 @@ def main():
             continuar = False
     
         else:
-            print(red + "Opción inválida. Por favor, selecciona 1, 2 o 3.")
+            print(red + "Opción inválida. Por favor, selecciona 1,2,3 o 4.")
 
 if __name__ == "__main__":
     main()

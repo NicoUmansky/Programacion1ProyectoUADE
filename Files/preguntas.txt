@@ -39,3 +39,4 @@
 39; ¿En qué año fue inaugurado el Metrobús en Buenos Aires?;2010, 2015, 2012, 2018; 2
 40; ¿Quién es conocido como "La Negra"?;Mercedes Sosa, Chavela Vargas, Violeta Parra, Susana Giménez;0
 41;Cuantas Copas Libertadores tiene Boca Juniors?;3,5,2,6;3
+42;En donde se juega el proximo mundial (2026)?;Argentina,Italia,Estados Unidos,Noruega;2

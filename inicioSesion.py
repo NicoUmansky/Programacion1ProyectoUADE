@@ -45,7 +45,7 @@ def inicioSesion():
         while validarNombreUsuario(nombreUsuario):
             print("Nombre ya existente!")
             nombreUsuario = input("Reingrese su nombre de usuario: ")
-        equipos = ["Argentinos Juniors", "Atlético Tucumán", "Banfield", "Barracas Central", "Belgrano", "Boca Juniors", "Deportivo Riestra", "Defensa y Justicia", "Estudiantes", "Gimnasia", "Godoy Cruz", "Huracán", "Independiente", "Independiente de Rivadavia", "Instituto", "Lanús", "Newell's Old Boys", "Platense", "Racing", "River Plate", "Rosario Central", "Sarmiento", "San Lorenzo", "Talleres", "Tigre", "Unión", "Vélez", "Central Córdoba"]
+        equipos = ["Argentinos Juniors", "Atlético Tucuman", "Banfield", "Barracas Central", "Belgrano", "Boca Juniors", "Deportivo Riestra", "Defensa y Justicia", "Estudiantes", "Gimnasia", "Godoy Cruz", "Huracan", "Independiente", "Independiente de Rivadavia", "Instituto", "Lanus", "Newell's Old Boys", "Platense", "Racing", "River Plate", "Rosario Central", "Sarmiento", "San Lorenzo", "Talleres", "Tigre", "Union", "Velez", "Central Cordoba"]
 
         equipos_por_pagina = 7
         pagina_actual = 0

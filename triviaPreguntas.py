@@ -135,7 +135,10 @@ def jugarPreguntas(preguntas, opciones, indiceCorrectas, equipo):
             print(f"{red}Te quedan {vidas} vidas.{reset}")
         
     respuestasTotales = respuestasCorrectas + respuestasIncorrectas
-    efectividad = (respuestasCorrectas/respuestasTotales) * 100
+    if respuestasTotales == 0:
+        efectividad = 0
+    else:
+        efectividad = (respuestasCorrectas/respuestasTotales) * 100
 
     print(puntuacion)
     print(respuestasCorrectas)
