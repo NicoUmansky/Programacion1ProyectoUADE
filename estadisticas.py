@@ -13,8 +13,8 @@ def calcularEstadisticas (usuario, a,b,c,d):
         arch.close()
         
 def calcularEstadisticasPenales (usuario, a, b, c):
-    rutaArchivo1 = r"Programacion1ProyectoUADE/Files/estadisticasPuntaje.csv" 
-    rutaArchivo2 = r"Files\estadisticasPuntaje.csv"
+    rutaArchivo1 = r"Programacion1ProyectoUADE/Files/estadisticasPenales.csv" 
+    rutaArchivo2 = r"Files\estadisticasPenales.csv"
     rutaElegida = rutaArchivo2
     try:
         arch = open(rutaElegida, "at")

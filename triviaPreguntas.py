@@ -90,6 +90,8 @@ validarRespuesta = lambda respuesta: respuesta.isdigit() and respuesta in ['1', 
 def jugarPreguntas(preguntas, opciones, indiceCorrectas, equipo):
     respuestasCorrectas = 0
     respuestasIncorrectas = 0
+    penalesAcertados = 0
+    penalesPateados = 0
     vidas = 3
     puntuacion = 0
     efectividad = 0
@@ -103,7 +105,8 @@ def jugarPreguntas(preguntas, opciones, indiceCorrectas, equipo):
         if vidas <= 0:
             respuestasTotales = respuestasCorrectas + respuestasIncorrectas
             efectividad = (respuestasCorrectas/respuestasTotales) * 100
-            return puntuacion, respuestasCorrectas, respuestasTotales, efectividad
+            efectividadPenales = (penalesAcertados/penalesPateados) * 100
+            return puntuacion, respuestasCorrectas, respuestasTotales, efectividad, penalesPateados, penalesAcertados, efectividadPenales
         
         mostrarPregunta(preguntas[indiceElegido]["pregunta"], preguntas[indiceElegido]["opciones"])
         respuestaUsuario = input("Seleccione una opción (1-4): ")
@@ -119,6 +122,10 @@ def jugarPreguntas(preguntas, opciones, indiceCorrectas, equipo):
             gol = penal(equipo)
             if gol:
                 puntuacion += 1
+                penalesPateados += 1
+                penalesAcertados += 1
+            else:
+                penalesPateados += 1
             input(f"{white}Presiona cualquier botón para continuar: {reset}")
             atajado = atajar(equipo)
             if atajado:
@@ -137,11 +144,9 @@ def jugarPreguntas(preguntas, opciones, indiceCorrectas, equipo):
     respuestasTotales = respuestasCorrectas + respuestasIncorrectas
     if respuestasTotales == 0:
         efectividad = 0
+        efectividadPenales = 0
     else:
         efectividad = (respuestasCorrectas/respuestasTotales) * 100
+        efectividadPenales = (penalesAcertados/penalesPateados) * 100
 
-    print(puntuacion)
-    print(respuestasCorrectas)
-    print(respuestasTotales)
-    print(efectividad)
-    return puntuacion, respuestasCorrectas, respuestasTotales, efectividad
+    return puntuacion, respuestasCorrectas, respuestasTotales, efectividad, penalesPateados, penalesAcertados, efectividadPenales

@@ -55,9 +55,10 @@ def main():
             
             preguntas, opciones, indiceCorrectas = cargarPreguntas(rutaElegida)
 
-            puntuacionFinal, respuestasCorrectas, respuestasTotales, efectividad = jugarPreguntas(preguntas, opciones, indiceCorrectas, equipo)
+            puntuacionFinal, respuestasCorrectas, respuestasTotales, efectividad, penalesPateados, penalesAcertados, efectividadPenales = jugarPreguntas(preguntas, opciones, indiceCorrectas, equipo)
             print(green + f"Juego terminado. Tu puntuación final es {puntuacionFinal}.")
             calcularEstadisticas(nombreUsuario, respuestasTotales, respuestasCorrectas, puntuacionFinal, efectividad)
+            calcularEstadisticasPenales(nombreUsuario, penalesPateados, penalesAcertados, efectividadPenales)
 
             chequeoRanking(nombreUsuario, equipo, puntuacionFinal)
             mostrarRanking(nombreUsuario)
