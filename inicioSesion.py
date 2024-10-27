@@ -47,30 +47,30 @@ def inicioSesion():
             nombreUsuario = input("Reingrese su nombre de usuario: ")
         equipos = ["Argentinos Juniors", "Atlético Tucuman", "Banfield", "Barracas Central", "Belgrano", "Boca Juniors", "Deportivo Riestra", "Defensa y Justicia", "Estudiantes", "Gimnasia", "Godoy Cruz", "Huracan", "Independiente", "Independiente de Rivadavia", "Instituto", "Lanus", "Newell's Old Boys", "Platense", "Racing", "River Plate", "Rosario Central", "Sarmiento", "San Lorenzo", "Talleres", "Tigre", "Union", "Velez", "Central Cordoba"]
 
-        equipos_por_pagina = 7
-        pagina_actual = 0
+        equiposPorPagina = 7
+        paginaActual = 0
 
-        def mostrar_equipos(pagina):
-            inicio = pagina * equipos_por_pagina
-            fin = inicio + equipos_por_pagina
+        def mostrarEquipos(pagina):
+            inicio = pagina * equiposPorPagina
+            fin = inicio + equiposPorPagina
             for i, equipo in enumerate(equipos[inicio:fin], start=1):
                 print(f"{i}. {equipo}")
                 
         while True:
             print("\nEquipos:")
-            mostrar_equipos(pagina_actual)
+            mostrarEquipos(paginaActual)
             
             opcion = input("\nElige un equipo (1-7), 'n' para siguiente página, 'p' para anterior").lower()
             
-            if opcion == 'n' and (pagina_actual + 1) * equipos_por_pagina < len(equipos):
-                pagina_actual += 1
-            elif opcion == 'p' and pagina_actual > 0:
-                pagina_actual -= 1
+            if opcion == 'n' and (paginaActual + 1) * equiposPorPagina < len(equipos):
+                paginaActual += 1
+            elif opcion == 'p' and paginaActual > 0:
+                paginaActual -= 1
             else:
                 try:
                     eleccion = int(opcion) - 1
-                    if 0 <= eleccion < equipos_por_pagina:
-                        equipo = equipos[pagina_actual * equipos_por_pagina + eleccion]
+                    if 0 <= eleccion < equiposPorPagina:
+                        equipo = equipos[paginaActual * equiposPorPagina + eleccion]
                         print(f"\nHas elegido: {equipo}")
                         break
                 except ValueError:
