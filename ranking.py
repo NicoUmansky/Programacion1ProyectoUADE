@@ -1,5 +1,4 @@
 puntuaciones = []
-
 yellow = '\x1b[33m'
 blue = '\x1b[34m'
 white = '\x1b[37m'

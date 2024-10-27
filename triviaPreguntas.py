@@ -1,4 +1,4 @@
-from Penales import penal, atajar
+from penales import penal, atajar
 import random
 
 # Colores usando código ANSI
@@ -14,72 +14,98 @@ def cargarPreguntas(rutaElegida):
     preguntas = {}
     opciones = []
     respuestasCorrectas = []
+
     try:
         archivoPreguntas = open(rutaElegida, 'r', encoding='utf-8')
         lineas = archivoPreguntas.readlines()
         archivoPreguntas.close()
+        
+    except FileNotFoundError:
+        print("¡Error! No se encontro el archivo con las preguntas")
+        return preguntas, opciones, respuestasCorrectas
+    except IOError:
+        print("¡Error! No se pudo leer el archivo de preguntas")
+        return preguntas, opciones, respuestasCorrectas
 
-        for linea in lineas:
-            partes = linea.strip().split(';')
-            numeroPregunta = int(partes[0].strip())
-            pregunta = partes[1].strip()
-            opcion = [opcion.strip() for opcion in partes[2].split(',')]
+    for linea in lineas:
+        partes = linea.strip().split(';')
+        if len(partes) < 4:
+            print(f"Error en la línea '{linea.strip()}' ya que no tiene el formato correcto.")
+            continue
+        
+        numeroPregunta = int(partes[0].strip())
+        pregunta = partes[1].strip()
+        opcion = [opcion.strip() for opcion in partes[2].split(',')]
+        
+        try:
             respuestaCorrecta = int(partes[3].strip())
+            if respuestaCorrecta < 0 or respuestaCorrecta >= len(opcion):
+                print(f"¡Error! El índice de respuesta correcta para la pregunta '{pregunta}' está fuera de rango.")
+                continue
             
             preguntas[numeroPregunta] = {
                 "pregunta": pregunta,
                 "opciones": opcion,
                 "respuestaCorrecta": respuestaCorrecta
             }
-            
             opciones.append(opcion)
             respuestasCorrectas.append(respuestaCorrecta)
 
-    except FileNotFoundError:
-        print("Error: No se pudo encontrar el archivo de preguntas.")
-    
+        except ValueError:
+            print(f"Error en la línea '{linea.strip()}': respuesta correcta inválida.")
+
     return preguntas, opciones, respuestasCorrectas
 
 def agregarPregunta(rutaElegida):
-    
-        print(yellow + "Agregar Nueva Pregunta:" + reset)
-        pregunta = input("Ingrese la pregunta: ")
-    
-        opciones = []
-        for i in range(4):
-            opcion = input(f"Ingrese la opción de respuesta {i + 1}: ")
-            opciones.append(opcion)
+    preguntas, opciones, respuestasCorrectas = cargarPreguntas(rutaElegida)
 
+    if not preguntas:
+        print("No se pueden agregar preguntas hasta que se carguen preguntas válidas.")
+        return
+
+    print(yellow + "Agregar Nueva Pregunta:" + reset)
+    pregunta = input("Ingrese la pregunta: ")
+    
+    opciones = []
+    for i in range(4):
+        opcion = input(f"Ingrese la opción de respuesta {i + 1}: ")
+        opciones.append(opcion)
+
+    respuestaCorrecta = input("Ingrese el número de la opción correcta (1-4): ")
+    while not (respuestaCorrecta.isdigit() and int(respuestaCorrecta) in [1, 2, 3, 4]):
+        print(f"{yellow}Opción inválida. Debe ser un número entre 1 y 4.{reset}")
         respuestaCorrecta = input("Ingrese el número de la opción correcta (1-4): ")
-        while not (respuestaCorrecta.isdigit() and int(respuestaCorrecta) in [1, 2, 3, 4]):
-            print(f"{yellow}Opción inválida. Debe ser un número entre 1 y 4.{reset}")
-            respuestaCorrecta = input("Ingrese el número de la opción correcta (1-4): ")
 
-        respuestaCorrecta = int(respuestaCorrecta) - 1
+    respuestaCorrecta = int(respuestaCorrecta) - 1
+
+    try:
         archivoPreguntas = open(rutaElegida, 'a', encoding='utf-8')
         numeroPregunta = obtenerNumeroPregunta(rutaElegida)
         opcionesTexto = ','.join(opciones)
-
         archivoPreguntas.write(f"{numeroPregunta};{pregunta};{opcionesTexto};{respuestaCorrecta}\n")
         archivoPreguntas.close() 
         print(yellow + "¡Pregunta agregada exitosamente!" + reset)
 
+    except IOError:
+        print("Error: No se pudo escribir en el archivo de las preguntas")
+
 def obtenerNumeroPregunta(rutaElegida):
-    #Consigo el numero de la ultima pregunta para asignarle el siguiente numero a la que estoy creando
     try:
         archivoPreguntas = open(rutaElegida, 'r', encoding='utf-8')
         lineas = archivoPreguntas.readlines()
         archivoPreguntas.close()
+
         if lineas:
             ultimoLinea = lineas[-1].strip()
             return int(ultimoLinea.split(';')[0]) + 1
         else:
-            return 1 #Si el archivo esta vacio porque no hay preguntas, le asigno el indice 1
+            return 1  # Si el archivo está vacío, se puede agregar la pregunta que sería la 1
         
     except FileNotFoundError:
-        print("Error: No se pudo encontrar el archivo de preguntas.")
-        return 0
-    
+        print("¡Error! No se encontró el archivo de las pregunta.")
+    except IOError:
+        print("¡Error! No se pudo leer el archivo de preguntas")
+
 def mostrarPregunta(pregunta, opciones):
     print(f"{green}{pregunta}{reset}")
     for i, opcion in enumerate(opciones, start=1):

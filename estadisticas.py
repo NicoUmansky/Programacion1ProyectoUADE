@@ -1,5 +1,3 @@
-
-
 def calcularEstadisticas (usuario, a,b,c,d):
     rutaArchivo1 = r"Programacion1ProyectoUADE/Files/estadisticasPuntaje.csv" 
     rutaArchivo2 = r"Files\estadisticasPuntaje.csv"

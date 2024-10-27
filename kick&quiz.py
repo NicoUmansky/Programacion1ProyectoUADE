@@ -1,7 +1,7 @@
 rutaArchivo1 = r"Programacion1ProyectoUADE/Files/preguntas.txt" 
 rutaArchivo2 = r"Files\preguntas.txt"
 
-rutaElegida = rutaArchivo2
+rutaElegida = rutaArchivo1
 
 from triviaPreguntas import jugarPreguntas, agregarPregunta, cargarPreguntas
 # from ranking import mostrarRanking, actualizarRanking, puntuaciones

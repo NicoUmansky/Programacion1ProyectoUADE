@@ -1,7 +1,7 @@
 rutaArchivo1 = r"Programacion1ProyectoUADE\Files\usuarios.csv" 
 rutaArchivo2 = r"Files\usuarios.csv"
 
-rutaElegida = rutaArchivo2
+rutaElegida = rutaArchivo1
 def inicioSesion():
     validarInicio = lambda eleccion:  eleccion.isdigit() and decision in ['1', '2']
     validarContra = lambda contra: contra.isdigit() and len(contra) == 4    

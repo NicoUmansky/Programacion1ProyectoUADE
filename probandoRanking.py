@@ -10,7 +10,6 @@ red = '\x1b[31m'
 blue = '\x1b[34m'
 reset = '\x1b[0m'
 
-
 def actualizarRanking(ranking):
     try:
         arch = open(rutaElegida, "wt")
