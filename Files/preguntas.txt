@@ -29,7 +29,7 @@
 29; ¿Qué ciudad argentina es conocida como "La Perla del Oeste"?;Mendoza, San Juan, Neuquén, Salta; 1
 30; ¿Cuál es el nombre de la famosa danza folclórica argentina?;Cumbia, Tango, Salsa, Samba; 1
 31; ¿En qué año se creó la Constitución Nacional de Argentina?;1853, 1860, 1949, 1810; 0
-32; ¿Cuál es el nombre del famoso artista plástico argentino que pintó "El mural de la Casa Rosada"?;Rufino Tamayo, Antonio Berni, Quinquela Martín, David Alfaro Siqueiros; 1
+32; ¿Cuál es el nombre del famoso artista plástico argentino que pintó "El mural de la Casa Rosada"?;Rufino Tamayo, Antonio Berni, Quinquela Martín, David Alfaro Siqueiros; 4
 33; ¿Qué partido político fundó Juan Domingo Perón?;Radicalismo, Justicialismo, Socialismo, Conservadurismo; 1
 34; ¿En qué ciudad se encuentra la Casa de la Cultura de Buenos Aires?;CABA, La Plata, Rosario, Córdoba; 0
 35; ¿Cuál es la playa más famosa de Argentina?;Playa Varese, Playa de los Ingleses, Playa del Norte, Playa de Mar del Plata; 1
@@ -41,3 +41,4 @@
 41;Cuantas Copas Libertadores tiene Boca Juniors?;3,5,2,6;3
 42;En donde se juega el proximo mundial (2026)?;Argentina,Italia,Estados Unidos,Noruega;2
 43;En que año estamos?;2019,2024,2020,2026;1
+44;Quien gano las elecciones presidenciales del 2023?;Messi,Massa,Milei,Cristina Kirchner;2
