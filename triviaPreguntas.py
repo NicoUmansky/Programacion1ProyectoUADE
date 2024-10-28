@@ -79,7 +79,7 @@ def agregarPregunta(rutaElegida):
     respuestaCorrecta = int(respuestaCorrecta) - 1
 
     try:
-        archivoPreguntas = open(rutaElegida, 'a', encoding='utf-8')
+        archivoPreguntas = open(rutaElegida, 'at', encoding='utf-8')
         numeroPregunta = obtenerNumeroPregunta(rutaElegida)
         opcionesTexto = ','.join(opciones)
         archivoPreguntas.write(f"{numeroPregunta};{pregunta};{opcionesTexto};{respuestaCorrecta}\n")
@@ -110,6 +110,7 @@ def mostrarPregunta(pregunta, opciones):
     print(f"{green}{pregunta}{reset}")
     for i, opcion in enumerate(opciones, start=1):
         print(f"{white}{i}. {opcion}{reset}")
+    
 
 validarRespuesta = lambda respuesta: respuesta.isdigit() and respuesta in ['1', '2', '3', '4']
 
@@ -163,9 +164,12 @@ def jugarPreguntas(preguntas, opciones, indiceCorrectas, equipo):
         
         else:
             print(f"{blue}Respuesta incorrecta.{reset}")
+            print(green + "La respuesta correcta era: " + white + preguntas[indiceElegido]["opciones"][preguntas[indiceElegido]["respuestaCorrecta"]] + reset)
             vidas -= 1
             respuestasIncorrectas += 1
             print(f"{red}Te quedan {vidas} vidas.{reset}")
+            print("\n")
+
         
     respuestasTotales = respuestasCorrectas + respuestasIncorrectas
     if respuestasTotales == 0:
