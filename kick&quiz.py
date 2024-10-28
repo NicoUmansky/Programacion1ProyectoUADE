@@ -7,7 +7,6 @@ from triviaPreguntas import jugarPreguntas, agregarPregunta, cargarPreguntas
 from ranking import chequeoRanking,mostrarRanking     
 from inicioSesion import inicioSesion
 from estadisticas import calcularEstadisticas, calcularEstadisticasPenales
-import random
 
 # Colores usando código ANSI
 cyan = '\x1b[36m'
@@ -59,7 +58,7 @@ def main():
             print(f"{cyan}\n")
             mostrarRanking()
     
-        elif opcion == '3': 
+        elif opcion == '3':
             agregarPregunta(rutaElegida)
             
         elif opcion == '4': 
