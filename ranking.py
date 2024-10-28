@@ -77,7 +77,7 @@ def mostrarRanking(username=None):
     print("\n")
     print(yellow + "Top 10 del ranking:" + reset)
     for i, register in enumerate(top10, start=1):
-        print(f"{cyan}{i}. {white}{register[0]} - {cyan}{register[2]}{reset}")
+        print(f"{cyan}{i}. {white}{register[0]} {yellow}• {white}{register[2]} {cyan}puntos{reset}")
     print("\n")
 
     # Si se especifica un usuario, buscamos recursivamente su posición
@@ -85,7 +85,7 @@ def mostrarRanking(username=None):
         usuario, posicion = buscarUsuarioRecursiva(ranking, username)
         if usuario and posicion > 10:
             print(f"{yellow}El usuario {usuario[0]} está en la posición {posicion}.{reset}")
-            print(f"{cyan}{posicion}. {white}{usuario[0]} - {cyan}{usuario[2]}{reset}")
+            print(f"{cyan}{posicion}. {white}{usuario[0]} {yellow}• {white}{usuario[2]} {cyan}puntos{reset}")
         elif not usuario:
             print(f"El usuario {username} no se encontró en el ranking.")
 
