@@ -1,7 +1,7 @@
-rutaArchivo1 = r"Programacion1ProyectoUADE\Files\usuarios.csv" 
+rutaArchivo1 = r"Files/ranking.csv" 
 rutaArchivo2 = r"Files\ranking.csv"
 
-rutaElegida = rutaArchivo2
+rutaElegida = rutaArchivo1
 cyan = '\x1b[36m'
 yellow = '\x1b[33m'
 white = '\x1b[37m'

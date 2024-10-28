@@ -1,9 +1,10 @@
+rutaArchivo1 = r"Files/estadisticas" 
+rutaArchivo2 = r"Files\estadisticas"
+rutaElegida = rutaArchivo1
+    
 def calcularEstadisticas (usuario, a,b,c,d):
-    rutaArchivo1 = r"Programacion1ProyectoUADE/Files/estadisticasPuntaje.csv" 
-    rutaArchivo2 = r"Files\estadisticasPuntaje.csv"
-    rutaElegida = rutaArchivo2
     try:
-        arch = open(rutaElegida, "at")
+        arch = open(rutaElegida + "Puntaje.csv", "at")
     except IOError:
         print("Error al abrir el archivo")
     else:
@@ -11,13 +12,11 @@ def calcularEstadisticas (usuario, a,b,c,d):
         arch.close()
         
 def calcularEstadisticasPenales (usuario, a, b, c):
-    rutaArchivo1 = r"Programacion1ProyectoUADE/Files/estadisticasPenales.csv" 
-    rutaArchivo2 = r"Files\estadisticasPenales.csv"
-    rutaElegida = rutaArchivo2
     try:
-        arch = open(rutaElegida, "at")
+        arch = open(rutaElegida + "Penales.csv", "at")
     except IOError:
         print("Error al abrir el archivo")
     else:
         arch.write(f"{usuario};{a};{b};{c}\n")
         arch.close()
+        
