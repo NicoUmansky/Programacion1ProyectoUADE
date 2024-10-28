@@ -1,7 +1,16 @@
 rutaArchivo1 = r"Programacion1ProyectoUADE\Files\usuarios.csv" 
 rutaArchivo2 = r"Files\usuarios.csv"
 
-rutaElegida = rutaArchivo1
+rutaElegida = rutaArchivo2
+
+cyan = '\x1b[36m'
+yellow = '\x1b[33m'
+white = '\x1b[37m'
+green = '\x1b[32m'
+red = '\x1b[31m'
+blue = '\x1b[34m'
+reset = '\x1b[0m'
+
 def inicioSesion():
     validarInicio = lambda eleccion:  eleccion.isdigit() and decision in ['1', '2']
     validarContra = lambda contra: contra.isdigit() and len(contra) == 4    
@@ -54,13 +63,13 @@ def inicioSesion():
             inicio = pagina * equiposPorPagina
             fin = inicio + equiposPorPagina
             for i, equipo in enumerate(equipos[inicio:fin], start=1):
-                print(f"{i}. {equipo}")
+                print(f"{white}{i}. {equipo}{reset}")
                 
         while True:
-            print("\nEquipos:")
+            print("\n" + white + "Equipos:")
             mostrarEquipos(paginaActual)
             
-            opcion = input("\nElige un equipo (1-7), 'n' para siguiente página, 'p' para anterior").lower()
+            opcion = input("\nElige un equipo (1-7), 'n' para siguiente página, 'p' para anterior: ").lower()
             
             if opcion == 'n' and (paginaActual + 1) * equiposPorPagina < len(equipos):
                 paginaActual += 1
@@ -71,10 +80,10 @@ def inicioSesion():
                     eleccion = int(opcion) - 1
                     if 0 <= eleccion < equiposPorPagina:
                         equipo = equipos[paginaActual * equiposPorPagina + eleccion]
-                        print(f"\nHas elegido: {equipo}")
+                        print(f"\nHas elegido: {green}{equipo}{reset}")
                         break
                 except ValueError:
-                    print("Opción no válida, intenta de nuevo.")
+                    print(red + "Opción no válida, intenta de nuevo."+ reset)
 
         sexo = input("Ingrese su sexo. M para Masculino, F para Femenino o X para otros: ")
         while not validarSexo(sexo):
