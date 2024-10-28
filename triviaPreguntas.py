@@ -10,6 +10,8 @@ red = '\x1b[31m'
 blue = '\x1b[34m'
 reset = '\x1b[0m'
 
+validarRespuesta = lambda respuesta: respuesta.isdigit() and respuesta in ['1', '2', '3', '4']
+
 def cargarPreguntas(rutaElegida):
     preguntas = {}
     opciones = []
@@ -111,9 +113,6 @@ def mostrarPregunta(pregunta, opciones):
     for i, opcion in enumerate(opciones, start=1):
         print(f"{white}{i}. {opcion}{reset}")
     
-
-validarRespuesta = lambda respuesta: respuesta.isdigit() and respuesta in ['1', '2', '3', '4']
-
 def jugarPreguntas(preguntas, opciones, indiceCorrectas, equipo):
     respuestasCorrectas = 0
     respuestasIncorrectas = 0
