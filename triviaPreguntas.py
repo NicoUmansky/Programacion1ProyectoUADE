@@ -114,7 +114,7 @@ def mostrarPregunta(pregunta, opciones):
 
 validarRespuesta = lambda respuesta: respuesta.isdigit() and respuesta in ['1', '2', '3', '4']
 
-def jugarPreguntas(preguntas, opciones, indiceCorrectas, equipo):
+def jugarPreguntas(preguntas, equipo):
     respuestasCorrectas = 0
     respuestasIncorrectas = 0
     penalesAcertados = 0
@@ -130,11 +130,8 @@ def jugarPreguntas(preguntas, opciones, indiceCorrectas, equipo):
         preguntasHechas.append(indiceElegido)
         
         if vidas <= 0:
-            respuestasTotales = respuestasCorrectas + respuestasIncorrectas
-            efectividad = (respuestasCorrectas/respuestasTotales) * 100
-            efectividadPenales = (penalesAcertados/penalesPateados) * 100
-            return puntuacion, respuestasCorrectas, respuestasTotales, efectividad, penalesPateados, penalesAcertados, efectividadPenales
-        
+            break
+
         mostrarPregunta(preguntas[indiceElegido]["pregunta"], preguntas[indiceElegido]["opciones"])
         respuestaUsuario = input("Seleccione una opción (1-4): ")
         
@@ -174,6 +171,7 @@ def jugarPreguntas(preguntas, opciones, indiceCorrectas, equipo):
     respuestasTotales = respuestasCorrectas + respuestasIncorrectas
     if respuestasTotales == 0:
         efectividad = 0
+    elif penalesPateados == 0:
         efectividadPenales = 0
     else:
         efectividad = (respuestasCorrectas/respuestasTotales) * 100

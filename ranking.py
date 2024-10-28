@@ -86,6 +86,7 @@ def mostrarRanking(username=None):
         if usuario and posicion > 10:
             print(f"{yellow}El usuario {usuario[0]} está en la posición {posicion}.{reset}")
             print(f"{cyan}{posicion}. {white}{usuario[0]} {yellow}• {white}{usuario[2]} {cyan}puntos{reset}")
+            print("\n")
         elif not usuario:
             print(f"El usuario {username} no se encontró en el ranking.")
 
