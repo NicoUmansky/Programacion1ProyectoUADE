@@ -127,7 +127,7 @@ def jugarPreguntas(preguntas, equipo):
     preguntasHechas = []
     
     while len(preguntasHechas) < len(preguntas):
-        indicesDisponibles = [i for i in range(len(preguntas)) if i not in preguntasHechas]
+        indicesDisponibles = [i for i in range(1,len(preguntas)) if i not in preguntasHechas]
         indiceElegido = random.choice(indicesDisponibles)
         preguntasHechas.append(indiceElegido)
         

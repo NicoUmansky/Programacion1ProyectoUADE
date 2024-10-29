@@ -29,14 +29,14 @@
 29; ¿Qué ciudad argentina es conocida como "La Perla del Oeste"?;Mendoza, San Juan, Neuquén, Salta; 1
 30; ¿Cuál es el nombre de la famosa danza folclórica argentina?;Cumbia, Tango, Salsa, Samba; 1
 31; ¿En qué año se creó la Constitución Nacional de Argentina?;1853, 1860, 1949, 1810; 0
-32; ¿Cuál es el nombre del famoso artista plástico argentino que pintó "El mural de la Casa Rosada"?;Rufino Tamayo, Antonio Berni, Quinquela Martín, David Alfaro Siqueiros; 4
+32; ¿Cuál es el nombre del famoso artista plástico argentino que pintó "El mural de la Casa Rosada"?;Rufino Tamayo, Antonio Berni, Quinquela Martín, David Alfaro Siqueiros; 3
 33; ¿Qué partido político fundó Juan Domingo Perón?;Radicalismo, Justicialismo, Socialismo, Conservadurismo; 1
 34; ¿En qué ciudad se encuentra la Casa de la Cultura de Buenos Aires?;CABA, La Plata, Rosario, Córdoba; 0
 35; ¿Cuál es la playa más famosa de Argentina?;Playa Varese, Playa de los Ingleses, Playa del Norte, Playa de Mar del Plata; 1
 36; ¿Quién fue la primera mujer en ocupar un cargo de ministra en Argentina?;Eva Perón, Susana Giménez, Alicia Moreau de Justo, Graciela Fernández Meijide; 2
 37; ¿Qué corriente artística se asocia con el artista argentino Antonio Berni?;Surrealismo, Realismo social, Cubismo, Expresionismo; 1
 38; ¿Cuál es el festival de música más grande de Argentina?;Lollapalooza, Cosquín Rock, Festival Internacional de Jazz, Quilmes Rock; 0
-39; ¿En qué año fue inaugurado el Metrobús en Buenos Aires?;2010, 2015, 2012, 2018; 2
+39; ¿En qué año fue inaugurado el Metrobús en Buenos Aires?;2010, 2015, 2012, 2018; 1
 40; ¿Quién es conocido como "La Negra"?;Mercedes Sosa, Chavela Vargas, Violeta Parra, Susana Giménez;0
 41;Cuantas Copas Libertadores tiene Boca Juniors?;3,5,2,6;3
 42;En donde se juega el proximo mundial (2026)?;Argentina,Italia,Estados Unidos,Noruega;2
