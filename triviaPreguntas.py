@@ -60,11 +60,7 @@ def cargarPreguntas(rutaElegida):
 
 def agregarPregunta(rutaElegida):
     preguntas, opciones, respuestasCorrectas = cargarPreguntas(rutaElegida)
-
-    if not preguntas:
-        print("No se pueden agregar preguntas hasta que se carguen preguntas válidas.")
-        return
-
+    
     print(yellow + "Agregar Nueva Pregunta:" + reset)
     pregunta = input("Ingrese la pregunta: ")
     
@@ -113,8 +109,6 @@ def mostrarPregunta(pregunta, opciones):
     for i, opcion in enumerate(opciones, start=1):
         print(f"{white}{i}. {opcion}{reset}")
     
-
-validarRespuesta = lambda respuesta: respuesta.isdigit() and respuesta in ['1', '2', '3', '4']
 
 def jugarPreguntas(preguntas, equipo):
     respuestasCorrectas = 0
