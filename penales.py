@@ -11,29 +11,29 @@ reset = '\x1b[0m'
 equiposArgentinos = ["Argentinos Juniors", "Atlético Tucumán", "Banfield", "Barracas Central", "Belgrano", "Boca Juniors", "Deportivo Riestra", "Defensa y Justicia", "Estudiantes", "Gimnasia", "Godoy Cruz", "Huracán", "Independiente", "Independiente de Rivadavia", "Instituto", "Lanús", "Newell's Old Boys", "Platense", "Racing", "River Plate", "Rosario Central", "Sarmiento", "San Lorenzo", "Talleres", "Tigre", "Unión", "Vélez", "Central Córdoba"]
 
 def arco1():
-    print("...")
+    print(white + "...")
     print("┎⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯┒")
     print("|  ✅  ┆  ✅  ┆  ❌  |")
     print("|  ❌  ┆  ❌  ┆  ✅  |")
-    print("|  ❌  ┆  ✅  ┆  ✅  |")
+    print("|  ❌  ┆  ✅  ┆  ✅  |" + reset)
     matriz1 = [[1, 1, 0], [0, 0, 1], [0, 1, 1]]
     return matriz1
 
 def arco2():
-    print("...")
+    print(white + "...")
     print("┎⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯┒")
     print("|  ❌  ┆  ✅  ┆  ✅  |")
     print("|  ✅  ┆  ✅  ┆  ❌  |")
-    print("|  ✅  ┆  ❌  ┆  ❌  |")
+    print("|  ✅  ┆  ❌  ┆  ❌  |" + reset)
     matriz2 = [[0, 1, 1], [1, 1, 0], [1, 0, 0]]
     return matriz2
 
 def arco3():
-    print("...")
+    print(white +"...")
     print("┎⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯┒")
     print("|  ✅  ┆  ✅  ┆  ❌  |")
     print("|  ❌  ┆  ✅  ┆  ❌  |")
-    print("|  ✅  ┆  ✅  ┆  ❌  |")
+    print("|  ✅  ┆  ✅  ┆  ❌  |"  + reset)
     matriz3 = [[1, 1, 0], [0, 1, 0], [1, 1, 0]]
     return matriz3  
 
@@ -56,10 +56,10 @@ def penal(equipo):
     gol = False
     print(f"Comienza el partido, {equipo} vs {rival}")
     print("Es momento de patear un penal para tener la posibilidad de sumar puntos extra, elegí a donde querés patear:")
-    print("┎⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯┒")
+    print(white + "┎⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯┒")
     print("|  1  ┆  2  ┆  3  |")
     print("|  4  ┆  5  ┆  6  |")
-    print("|  7  ┆  8  ┆  9  |")
+    print("|  7  ┆  8  ┆  9  |" + reset)
     casillero = input("Ingresa el número del casillero al que querés patear (1 al 9): ")
     while not validarCasillero(casillero):
         print(f"{red}Casillero inexistente {reset}")
@@ -92,10 +92,10 @@ def penal(equipo):
 def atajar(equipo):
     atajar = False
     print("Es momento de atajar un penal para tener la posibilidad de sumar puntos extra, elegí a donde queres atajar:")
-    print("┎⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯┒")
+    print(white +"┎⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯┒")
     print("|  1  ┆  2  ┆  3  |")
     print("|  4  ┆  5  ┆  6  |")
-    print("|  7  ┆  8  ┆  9  |")
+    print("|  7  ┆  8  ┆  9  |" + reset)
     print()
     
     casillero = input("Ingresa el número del casillero al cual deseas atajar (1 al 9): ")
