@@ -22,9 +22,6 @@ def cargarPreguntas(rutaElegida):
         lineas = archivoPreguntas.readlines()
         archivoPreguntas.close()
         
-    except FileNotFoundError:
-        print("¡Error! No se encontro el archivo con las preguntas")
-        return preguntas, opciones, respuestasCorrectas
     except IOError:
         print("¡Error! No se pudo leer el archivo de preguntas")
         return preguntas, opciones, respuestasCorrectas
@@ -99,8 +96,6 @@ def obtenerNumeroPregunta(rutaElegida):
         else:
             return 1  # Si el archivo está vacío, se puede agregar la pregunta que sería la 1
         
-    except FileNotFoundError:
-        print("¡Error! No se encontró el archivo de las pregunta.")
     except IOError:
         print("¡Error! No se pudo leer el archivo de preguntas")
 
