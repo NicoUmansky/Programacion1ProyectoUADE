@@ -48,7 +48,7 @@ def main():
             puntuacionFinal, respuestasCorrectas, respuestasTotales, efectividad, penalesPateados, penalesAcertados, efectividadPenales = jugarPreguntas(preguntas, equipo)
             print(green + f"Juego terminado. Tu puntuación final es {puntuacionFinal}.")
             
-            calcularEstadisticas(nombreUsuario, respuestasTotales, respuestasCorrectas, puntuacionFinal, efectividad)
+            calcularEstadisticas(nombreUsuario, respuestasTotales, respuestasCorrectas, efectividad)
             calcularEstadisticasPenales(nombreUsuario, penalesPateados, penalesAcertados, efectividadPenales)
 
             chequeoRanking(nombreUsuario, equipo, puntuacionFinal)

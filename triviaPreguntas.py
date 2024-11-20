@@ -19,39 +19,39 @@ def cargarPreguntas(rutaElegida):
 
     try:
         archivoPreguntas = open(rutaElegida, 'r', encoding='utf-8')
-        lineas = archivoPreguntas.readlines()
-        archivoPreguntas.close()
         
+        for linea in archivoPreguntas:  # Lee línea por línea
+            partes = linea.strip().split(';')
+            if len(partes) < 4:
+                print(f"Error en la línea '{linea.strip()}' ya que no tiene el formato correcto.")
+                continue
+            
+            try:
+                numeroPregunta = int(partes[0].strip())
+                pregunta = partes[1].strip()
+                opcion = [opcion.strip() for opcion in partes[2].split(',')]
+                respuestaCorrecta = int(partes[3].strip())
+                
+                if respuestaCorrecta < 0 or respuestaCorrecta >= len(opcion):
+                    print(f"¡Error! El índice de respuesta correcta para la pregunta '{pregunta}' está fuera de rango.")
+                    continue
+                
+                preguntas[numeroPregunta] = {
+                    "pregunta": pregunta,
+                    "opciones": opcion,
+                    "respuestaCorrecta": respuestaCorrecta
+                }
+                opciones.append(opcion)
+                respuestasCorrectas.append(respuestaCorrecta)
+
+            except ValueError:
+                print(f"Error en la línea '{linea.strip()}': respuesta correcta inválida.")
+        
+        archivoPreguntas.close()  # Cierra el archivo manualmente
+
     except IOError:
         print("¡Error! No se pudo leer el archivo de preguntas")
         return preguntas, opciones, respuestasCorrectas
-
-    for linea in lineas:
-        partes = linea.strip().split(';')
-        if len(partes) < 4:
-            print(f"Error en la línea '{linea.strip()}' ya que no tiene el formato correcto.")
-            continue
-        
-        numeroPregunta = int(partes[0].strip())
-        pregunta = partes[1].strip()
-        opcion = [opcion.strip() for opcion in partes[2].split(',')]
-        
-        try:
-            respuestaCorrecta = int(partes[3].strip())
-            if respuestaCorrecta < 0 or respuestaCorrecta >= len(opcion):
-                print(f"¡Error! El índice de respuesta correcta para la pregunta '{pregunta}' está fuera de rango.")
-                continue
-            
-            preguntas[numeroPregunta] = {
-                "pregunta": pregunta,
-                "opciones": opcion,
-                "respuestaCorrecta": respuestaCorrecta
-            }
-            opciones.append(opcion)
-            respuestasCorrectas.append(respuestaCorrecta)
-
-        except ValueError:
-            print(f"Error en la línea '{linea.strip()}': respuesta correcta inválida.")
 
     return preguntas, opciones, respuestasCorrectas
 
@@ -86,18 +86,20 @@ def agregarPregunta(rutaElegida):
 
 def obtenerNumeroPregunta(rutaElegida):
     try:
-        archivoPreguntas = open(rutaElegida, 'r', encoding='utf-8')
-        lineas = archivoPreguntas.readlines()
-        archivoPreguntas.close()
+        archivoPreguntas =  open(rutaElegida, 'r', encoding='utf-8')
+        ultimaLinea = None
+        for linea in archivoPreguntas:
+                ultimaLinea = linea.strip()  # Se actualiza con la última línea no vacía
 
-        if lineas:
-            ultimoLinea = lineas[-1].strip()
-            return int(ultimoLinea.split(';')[0]) + 1
+        archivoPreguntas.close()
+        if ultimaLinea:
+            return int(ultimaLinea.split(';')[0]) + 1
         else:
-            return 1  # Si el archivo está vacío, se puede agregar la pregunta que sería la 1
-        
+            return 1  # Si el archivo está vacío, la próxima pregunta sería la 1
+
     except IOError:
         print("¡Error! No se pudo leer el archivo de preguntas")
+
 
 def mostrarPregunta(pregunta, opciones):
     print(f"{green}{pregunta}{reset}")

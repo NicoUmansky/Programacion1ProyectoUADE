@@ -104,6 +104,7 @@ def registroCSV (mail, user, contra, team, sex):
         arch.close()
     
 def validarMailExistente(mail):
+    repetido = False
     try:
         arch = open(rutaElegida, "rt")
     except IOError:
@@ -112,11 +113,12 @@ def validarMailExistente(mail):
         for linea in arch:
             mailArchivo, x1, x2, x3, x4 = linea.strip().split(";")
             if mail.lower() == mailArchivo.lower():
-                return True
+                repetido = True
         arch.close()
-        return False
+        return repetido
 
 def validarNombreUsuario(nombreUsuario):
+    repetido = False
     try:
         arch = open(rutaElegida, "rt")
     except IOError:
@@ -125,12 +127,14 @@ def validarNombreUsuario(nombreUsuario):
         for linea in arch:
             x0, nombreUsuarioArchivo, x2, x3, x4 = linea.strip().split(";")
             if nombreUsuario.lower() == nombreUsuarioArchivo.lower():
-                return True
+                repetido = True
+                break
         arch.close()
-        return False
+        return repetido
     
     
 def validarInicioSesion(mail, contra):
+    existencia = False
     try:
         arch = open(rutaElegida, "rt")
     except IOError:
@@ -139,9 +143,10 @@ def validarInicioSesion(mail, contra):
         for linea in arch:
             mailArchivo, x1, contraArchivo, x2, x3 = linea.strip().split(";")
             if mail == mailArchivo and contra == contraArchivo:
-                return True
+                existencia =  True
+                break
         arch.close()
-        return False
+        return existencia
     
 def obtenerDatosUsuario(mail):
     try:
@@ -152,8 +157,11 @@ def obtenerDatosUsuario(mail):
         for linea in arch:
             mailArchivo, userArchivo, x1, equipo, x3 = linea.strip().split(";")
             if mail == mailArchivo:
-                return userArchivo,equipo
-        arch.close()
+                usuario = userArchivo,equipo
+                break
+        name, equipo = usuario
+        arch.close()    
+        return name, equipo
 
 
 
